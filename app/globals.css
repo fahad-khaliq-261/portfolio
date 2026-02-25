@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 /* Lenis Smooth Scroll */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -23,22 +24,22 @@ html.lenis, html.lenis body {
 
 :root {
   /* Dark Blue Theme */
-  --bg-primary: #0a0f1a;
-  --bg-secondary: #0f1729;
-  --bg-card: #131d2e;
-  --bg-card-hover: #182436;
-  
+  --bg-primary: #0e1424;
+  --bg-secondary: #131b31;
+  --bg-card: #18233a;
+  --bg-card-hover: #1e2c48;
+
   --text-primary: #ffffff;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+
   --accent: #3b82f6;
   --accent-hover: #60a5fa;
-  --accent-glow: rgba(59, 130, 246, 0.3);
-  
+  --accent-glow: rgba(59, 130, 246, 0.4);
+
   --border: #1e3a5f;
   --border-hover: #2563eb;
-  
+
   --success: #22c55e;
   --gradient-start: #3b82f6;
   --gradient-end: #8b5cf6;
@@ -163,6 +164,7 @@ body {
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -228,7 +230,9 @@ body {
 }
 
 /* Input Styles */
-input, textarea, select {
+input,
+textarea,
+select {
   background: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -239,13 +243,16 @@ input, textarea, select {
   transition: all 0.3s ease;
 }
 
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 4px var(--accent-glow);
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
   color: var(--text-muted);
 }
 
@@ -275,9 +282,12 @@ input::placeholder, textarea::placeholder {
 
 /* Floating Animation */
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -289,9 +299,12 @@ input::placeholder, textarea::placeholder {
 
 /* Pulse Animation */
 @keyframes pulse-glow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 20px var(--accent-glow);
   }
+
   50% {
     box-shadow: 0 0 40px var(--accent-glow);
   }
@@ -303,14 +316,40 @@ input::placeholder, textarea::placeholder {
 
 /* Navbar CTA Button */
 .nav-cta-btn {
-  background: linear-gradient(135deg, rgba(59,130,246,0.8), rgba(37,99,235,0.9));
-  border: 1px solid rgba(96,165,250,0.3);
-  box-shadow: 0 0 16px rgba(59,130,246,0.25);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(37, 99, 235, 0.9));
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  box-shadow: 0 0 16px rgba(59, 130, 246, 0.25);
   transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 .nav-cta-btn:hover {
-  box-shadow: 0 0 28px rgba(59,130,246,0.5);
+  box-shadow: 0 0 28px rgba(59, 130, 246, 0.5);
   transform: translateY(-1px);
 }
 
+/* Mesh Gradient Utility */
+.mesh-gradient {
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(37, 99, 235, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(124, 58, 237, 0.15) 0px, transparent 50%);
+  filter: blur(80px);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}

@@ -221,9 +221,6 @@ export default function Footer() {
           <p className="text-white/20 text-xs">
             &copy; {new Date().getFullYear()} DataMills. All rights reserved.
           </p>
-          <p className="text-white/15 text-xs">
-            Built with ♡ in India
-          </p>
         </div>
       </div>
 

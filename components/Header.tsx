@@ -8,11 +8,12 @@ import { ArrowUpRight, X, Menu } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 const navItems = [
-  { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Portfolio", href: "/work" },
   { name: "Insights", href: "/insights" },
-  { name: "Contact", href: "/contact" },
+  { name: "About", href: "/about" },
+
+
 ];
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -112,7 +113,7 @@ export default function Header() {
                 href="/contact"
                 className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white nav-cta-btn"
               >
-                Get Started
+                Contact us
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
 

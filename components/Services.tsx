@@ -35,21 +35,6 @@ const services = [
   },
   {
     id: 3,
-    title: "Healthcare",
-    color: "from-[#1e3a2f] to-[#0f1f17]",
-    titleColor: "text-emerald-300",
-    accentRgb: "110, 231, 183",
-    buttonBg: "bg-emerald-400 text-black hover:bg-emerald-300",
-    textColor: "text-white/70",
-    tagBorder: "border-white/30 text-white/80",
-    tags: ["Medical AI", "Patient Data", "HIPAA Compliance", "Clinical Tools", "Diagnostics"],
-    description:
-      "Transform healthcare delivery with compliant AI solutions. We specialize in medical AI implementations that meet HIPAA requirements and enhance patient care while protecting sensitive health data.",
-    href: "/services/healthcare",
-    lottie: "/gifs/healthcare.lottie",
-  },
-  {
-    id: 4,
     title: "Retail",
     color: "from-[#0c3547] to-[#061a24]",
     titleColor: "text-cyan-400",
@@ -60,6 +45,21 @@ const services = [
       "Revolutionize retail experiences with intelligent AI systems. From personalized recommendations to inventory optimization, we help retailers implement AI solutions that comply with consumer protection regulations.",
     href: "/services/retail",
     lottie: "/gifs/retail.lottie",
+  },
+  {
+    id: 4,
+    title: "Healthcare",
+    color: "from-[#fafafa] to-[#e5e7eb]",
+    titleColor: "text-slate-900",
+    accentRgb: "15, 23, 42",
+    buttonBg: "bg-slate-900 text-white hover:bg-slate-800",
+    textColor: "text-slate-600",
+    tagBorder: "border-slate-300 text-slate-700",
+    tags: ["Medical AI", "Patient Data", "HIPAA Compliance", "Clinical Tools", "Diagnostics"],
+    description:
+      "Transform healthcare delivery with compliant AI solutions. We specialize in medical AI implementations that meet HIPAA requirements and enhance patient care while protecting sensitive health data.",
+    href: "/services/healthcare",
+    lottie: "/gifs/healthcare.lottie",
   },
 ];
 
@@ -89,15 +89,20 @@ function ServiceCard({ service, index }: { service: (typeof services)[0]; index:
           style={{ background: `radial-gradient(circle, rgba(${service.accentRgb}, 0.15), transparent 70%)` }}
         />
 
-        {/* Lottie Animation */}
-        <div className="absolute right-4 md:right-12 top-1/2 -translate-y-1/2 w-36 h-36 md:w-52 md:h-52 pointer-events-none">
-          <DotLottieReact
-            src={service.lottie}
-            autoplay
-            loop
-            speed={0.8}
-            style={{ width: "100%", height: "100%" }}
-          />
+        {/* Lottie Animation – Responsive & Controlled */}
+        <div className="absolute right-0 bottom-16 pointer-events-none">
+          <div className="w-[260px] sm:w-[320px] md:w-[420px] lg:w-[520px] xl:w-[580px] 
+                          opacity-30 group-hover:opacity-50 
+                          transition-all duration-700 
+                          group-hover:scale-105 animate-[float_6s_ease-in-out_infinite]">
+            <DotLottieReact
+              src={service.lottie}
+              autoplay
+              loop
+              speed={0.4}
+              style={{ width: "100%", height: "100%" }}
+            />
+          </div>
         </div>
 
         {/* Content */}
@@ -130,9 +135,8 @@ function ServiceCard({ service, index }: { service: (typeof services)[0]; index:
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.4, delay: index * 0.1 + i * 0.05 + 0.2 }}
-                className={`px-3 py-1 rounded-full text-xs border ${
-                  service.tagBorder || "border-white/30 text-white/80"
-                }`}
+                className={`px-3 py-1 rounded-full text-xs border ${service.tagBorder || "border-white/30 text-white/80"
+                  }`}
               >
                 {tag}
               </motion.span>
@@ -143,7 +147,7 @@ function ServiceCard({ service, index }: { service: (typeof services)[0]; index:
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: index * 0.1 + 0.4 }}
-            className={`text-sm md:text-base leading-relaxed mb-8 ${service.textColor || "text-white/70"}`}
+            className={`text-sm md:text-base leading-relaxed mb-8 ${service.textColor || "text-white/90"}`}
           >
             {service.description}
           </motion.p>
