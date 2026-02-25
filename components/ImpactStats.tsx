@@ -38,7 +38,7 @@ export default function ImpactStats() {
   return (
     <section ref={ref} className="py-24 relative overflow-hidden">
       {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0b] via-[#111113] to-[#0a0a0b]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0f1a] via-[#0f1729] to-[#0a0f1a]" />
       
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
         {/* Section Header */}

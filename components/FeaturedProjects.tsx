@@ -138,7 +138,7 @@ export default function FeaturedProjects() {
 
               {/* Right - Content */}
               <div className="p-8 lg:p-12 flex flex-col justify-center">
-                <span className="inline-block px-3 py-1 bg-yellow-500/20 text-yellow-400 text-[11px] uppercase tracking-wider rounded-full self-start mb-6">
+                <span className="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-[11px] uppercase tracking-wider rounded-full self-start mb-6">
                   {currentProject.category}
                 </span>
 

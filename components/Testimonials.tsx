@@ -60,7 +60,7 @@ export default function Testimonials() {
             className="lg:sticky lg:top-32"
           >
             {/* Badge */}
-            <span className="inline-block px-4 py-1.5 border border-yellow-500/50 rounded-full text-[11px] uppercase tracking-[0.15em] text-yellow-400 mb-8">
+            <span className="inline-block px-4 py-1.5 border border-blue-500/40 rounded-full text-[11px] uppercase tracking-[0.15em] text-blue-400 mb-8">
               Stories of Success
             </span>
 
@@ -95,7 +95,7 @@ export default function Testimonials() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.15 }}
-                    className="bg-[#0d1220] rounded-2xl p-8 relative overflow-hidden group"
+                    className="bg-[#131d2e] border border-[#1e3a5f] rounded-2xl p-8 relative overflow-hidden group"
                   >
                     {/* Subtle gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -103,8 +103,8 @@ export default function Testimonials() {
                     {/* Top Section - Avatar for first card style */}
                     {index === 0 && (
                       <div className="flex items-center gap-3 mb-6">
-                        <div className="w-10 h-10 rounded-full bg-[#27272a] flex items-center justify-center">
-                          <span className="text-white/60 text-sm font-medium">
+                        <div className="w-10 h-10 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center">
+                          <span className="text-blue-400 text-sm font-medium">
                             {testimonial.initial}
                           </span>
                         </div>
@@ -125,9 +125,9 @@ export default function Testimonials() {
                     <div className="flex items-center gap-3 relative z-10">
                       {index === 1 && (
                         <>
-                          <div className="w-10 h-10 rounded-full bg-[#27272a] flex items-center justify-center">
+                          <div className="w-10 h-10 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center">
                             <svg
-                              className="w-5 h-5 text-white/60"
+                              className="w-5 h-5 text-blue-400"
                               viewBox="0 0 24 24"
                               fill="none"
                               stroke="currentColor"

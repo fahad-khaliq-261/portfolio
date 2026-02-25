@@ -300,3 +300,17 @@ input::placeholder, textarea::placeholder {
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
 }
+
+/* Navbar CTA Button */
+.nav-cta-btn {
+  background: linear-gradient(135deg, rgba(59,130,246,0.8), rgba(37,99,235,0.9));
+  border: 1px solid rgba(96,165,250,0.3);
+  box-shadow: 0 0 16px rgba(59,130,246,0.25);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.nav-cta-btn:hover {
+  box-shadow: 0 0 28px rgba(59,130,246,0.5);
+  transform: translateY(-1px);
+}
+

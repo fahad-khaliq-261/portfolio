@@ -19,53 +19,36 @@ const headlineLines = [
   { text: "SYSTEMS", color: "text-white", glowLastWord: true },
 ];
 
-const blueAccent = {
-  bar: "#38bdf8",
-  glow: "rgba(56,189,248,0.7)",
-  chip: "rgba(56,189,248,0.12)",
-  chipBorder: "rgba(56,189,248,0.22)",
-  chipText: "#7dd3fc",
-};
-
 const insightCards = [
   {
     category: "AI COMPLIANCE",
     title: "EU AI Act: Complete Implementation Guide for 2026",
     href: "/insights/eu-ai-act",
     image: "/img/ai.jpg",
-    readTime: "8 min read",
-    progress: 82,
-    accent: blueAccent,
+    overlay: "from-blue-950/90 via-blue-950/60 to-transparent",
   },
   {
     category: "RESEARCH REPORT",
     title: "How Healthcare Leaders Navigate AI Regulations",
     href: "/insights/healthcare-ai",
     image: "/img/health care.jpg",
-    readTime: "6 min read",
-    progress: 67,
-    accent: blueAccent,
+    overlay: "from-[#0a0f1a]/90 via-[#0a0f1a]/60 to-transparent",
   },
   {
     category: "CASE STUDY",
     title: "Transforming Legal Tech with Compliant AI Solutions",
     href: "/work/legal-tech",
     image: "/img/legal.jpg",
-    readTime: "5 min read",
-    progress: 54,
-    accent: blueAccent,
+    overlay: "from-[#0a0f1a]/90 via-[#0a0f1a]/60 to-transparent",
   },
   {
     category: "INDUSTRY INSIGHT",
     title: "Retail AI Trends & Compliance Strategies for 2026",
     href: "/insights/retail-ai",
     image: "/img/Retail.jpg",
-    readTime: "7 min read",
-    progress: 73,
-    accent: blueAccent,
+    overlay: "from-blue-950/90 via-blue-950/60 to-transparent",
   },
 ];
-
 
 const stats = [
   { value: "98%", label: "Compliance Rate" },
@@ -274,65 +257,69 @@ export default function Hero() {
             {insightCards.map((card, index) => (
               <motion.div
                 key={card.title}
-                initial={{ opacity: 0, y: 40, rotateX: 8 }}
-                animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                transition={{ delay: 1.4 + index * 0.15, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ y: -8, rotateX: 4, rotateY: index % 2 === 0 ? -3 : 3, scale: 1.02 }}
-                style={{ perspective: 800, transformStyle: "preserve-3d" }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.5 + index * 0.1 }}
+                whileHover={{ y: -6, scale: 1.01 }}
                 className="group cursor-pointer"
               >
                 <Link
                   href={card.href}
-                  className="block relative overflow-hidden min-h-[230px] sm:min-h-[260px]"
+                  className="block relative overflow-hidden min-h-[230px] sm:min-h-[250px]"
                   style={{
                     borderRadius: "16px",
                     background: "linear-gradient(160deg, #0d1628 0%, #080e1c 100%)",
-                    boxShadow: `0 0 0 1px rgba(255,255,255,0.06), 0 20px 60px rgba(0,0,0,0.6)`,
+                    boxShadow: "0 0 0 1px rgba(255,255,255,0.06), 0 20px 60px rgba(0,0,0,0.6)",
                   }}
                 >
-                  {/* ── PER-CARD NEON LEFT ACCENT BAR ── */}
+                  {/* ── NEON LEFT ACCENT BAR ── */}
                   <div
-                    className="absolute left-0 top-0 bottom-0 w-[3px] z-20"
+                    className="absolute left-0 top-0 bottom-0 w-[3px] z-20 transition-all duration-500"
                     style={{
-                      background: card.accent.bar,
-                      boxShadow: `0 0 10px 2px ${card.accent.glow}, 0 0 28px 4px ${card.accent.glow.replace('0.7', '0.25')}`,
-                      opacity: 0.75,
+                      background: "linear-gradient(to bottom, #38bdf8, #6366f1, #38bdf8)",
+                      boxShadow: "0 0 12px 2px rgba(56,189,248,0.6), 0 0 30px 4px rgba(99,102,241,0.3)",
+                      opacity: 0.7,
                     }}
                   />
                   <div
-                    className="absolute left-0 top-0 bottom-0 w-[3px] z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-400"
+                    className="absolute left-0 top-0 bottom-0 w-[3px] z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     style={{
-                      background: card.accent.bar,
-                      boxShadow: `0 0 20px 6px ${card.accent.glow}, 0 0 50px 12px ${card.accent.glow.replace('0.7', '0.4')}`,
+                      background: "linear-gradient(to bottom, #7dd3fc, #a5b4fc, #7dd3fc)",
+                      boxShadow: "0 0 20px 6px rgba(125,211,252,0.8), 0 0 50px 10px rgba(165,180,252,0.4)",
                     }}
                   />
 
                   {/* ── GIANT GHOST INDEX NUMBER ── */}
                   <div
-                    className="absolute -right-2 -top-4 text-[110px] font-black leading-none select-none pointer-events-none z-10"
+                    className="absolute -right-2 -top-4 text-[110px] font-black leading-none select-none pointer-events-none z-10 transition-all duration-500"
                     style={{
                       color: "transparent",
-                      WebkitTextStroke: `1px ${card.accent.bar}18`,
+                      WebkitTextStroke: "1px rgba(96,165,250,0.08)",
+                      fontVariantNumeric: "tabular-nums",
                       letterSpacing: "-0.05em",
                     }}
                   >
                     {String(index + 1).padStart(2, "0")}
                   </div>
+                  {/* Ghost number brightens on hover */}
                   <div
                     className="absolute -right-2 -top-4 text-[110px] font-black leading-none select-none pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     style={{
                       color: "transparent",
-                      WebkitTextStroke: `1px ${card.accent.bar}44`,
+                      WebkitTextStroke: "1px rgba(125,211,252,0.2)",
+                      fontVariantNumeric: "tabular-nums",
                       letterSpacing: "-0.05em",
                     }}
                   >
                     {String(index + 1).padStart(2, "0")}
                   </div>
 
-                  {/* ── DIAGONAL IMAGE PANEL ── */}
+                  {/* ── DIAGONAL IMAGE PANEL (right side) ── */}
                   <div
                     className="absolute inset-y-0 right-0 w-[55%] overflow-hidden z-0"
-                    style={{ clipPath: "polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%)" }}
+                    style={{
+                      clipPath: "polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                    }}
                   >
                     <Image
                       src={card.image}
@@ -341,48 +328,43 @@ export default function Hero() {
                       className="object-cover opacity-55 group-hover:opacity-75 transition-all duration-700 group-hover:scale-105"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
+                    {/* Image dark vignette */}
                     <div className="absolute inset-0 bg-gradient-to-r from-[#080e1c] via-[#080e1c]/30 to-transparent" />
                   </div>
 
-                  {/* ── SCAN-LINE SWEEP ── */}
+                  {/* ── SCAN-LINE SWEEP ON HOVER ── */}
                   <div className="absolute inset-0 z-10 overflow-hidden rounded-2xl pointer-events-none">
                     <motion.div
                       className="absolute inset-0"
                       style={{
-                        background: `linear-gradient(to right, transparent 0%, ${card.accent.chip} 50%, transparent 100%)`,
+                        background: "linear-gradient(to right, transparent 0%, rgba(125,211,252,0.06) 50%, transparent 100%)",
                         x: "-100%",
                       }}
+                      animate={{}}
                       whileHover={{ x: "100%" }}
-                      transition={{ duration: 0.55, ease: "easeInOut" }}
+                      transition={{ duration: 0.6, ease: "easeInOut" }}
                     />
                   </div>
 
                   {/* ── CONTENT ── */}
-                  <div className="relative z-20 p-5 flex flex-col justify-between h-full min-h-[230px] sm:min-h-[260px]">
+                  <div className="relative z-20 p-5 flex flex-col justify-between h-full min-h-[230px] sm:min-h-[250px]">
                     {/* TOP: Category chip */}
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-start gap-2">
                       <span
                         className="px-2.5 py-[5px] text-[8px] uppercase tracking-[0.2em] font-extrabold"
                         style={{
-                          background: card.accent.chip,
-                          border: `1px solid ${card.accent.chipBorder}`,
+                          background: "linear-gradient(90deg, rgba(56,189,248,0.15), rgba(99,102,241,0.15))",
+                          border: "1px solid rgba(56,189,248,0.2)",
                           borderRadius: "6px",
-                          color: card.accent.chipText,
+                          color: "#7dd3fc",
                           backdropFilter: "blur(10px)",
                         }}
                       >
                         {card.category}
                       </span>
-                      {/* Read time badge */}
-                      <span
-                        className="text-[9px] font-medium"
-                        style={{ color: "rgba(255,255,255,0.35)" }}
-                      >
-                        {card.readTime}
-                      </span>
                     </div>
 
-                    {/* BOTTOM: Title + progress + read */}
+                    {/* BOTTOM: Title + read tag */}
                     <div className="space-y-3">
                       <h3
                         className="text-white font-bold text-[13px] leading-snug tracking-tight"
@@ -391,42 +373,30 @@ export default function Hero() {
                         {card.title}
                       </h3>
 
-                      {/* Progress bar */}
-                      <div
-                        className="w-full h-[2px] rounded-full overflow-hidden"
-                        style={{ background: "rgba(255,255,255,0.06)" }}
-                      >
-                        <motion.div
-                          className="h-full rounded-full"
-                          style={{ background: card.accent.bar, boxShadow: `0 0 6px 1px ${card.accent.glow}` }}
-                          initial={{ width: 0 }}
-                          animate={{ width: `${card.progress}%` }}
-                          transition={{ delay: 1.8 + index * 0.15, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                        />
-                      </div>
-
-                      {/* Read more */}
-                      <motion.span
-                        className="inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-wide"
-                        style={{ color: card.accent.chipText, opacity: 0.7 }}
-                        whileHover={{ opacity: 1 }}
-                      >
-                        Read more
+                      {/* Animated read tag */}
+                      <div className="flex items-center gap-2">
                         <motion.span
-                          animate={{ x: [0, 3, 0] }}
-                          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+                          className="inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-wide"
+                          style={{ color: "rgba(125,211,252,0.7)" }}
+                          whileHover={{ color: "rgba(125,211,252,1)" }}
                         >
-                          →
+                          Read more
+                          <motion.span
+                            animate={{ x: [0, 3, 0] }}
+                            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+                          >
+                            →
+                          </motion.span>
                         </motion.span>
-                      </motion.span>
+                      </div>
                     </div>
                   </div>
 
-                  {/* ── HOVER GLOW BORDER (per-card color) ── */}
+                  {/* ── HOVER GLOW BORDER ── */}
                   <div
                     className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                     style={{
-                      boxShadow: `inset 0 0 0 1px ${card.accent.chipBorder}, 0 0 40px ${card.accent.chip}`,
+                      boxShadow: "inset 0 0 0 1px rgba(56,189,248,0.25), 0 0 40px rgba(56,189,248,0.08)",
                     }}
                   />
                 </Link>

@@ -37,7 +37,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden bg-[#0a0f1a]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -75,7 +75,7 @@ export default function Process() {
             >
               <div className="card p-8 h-full relative overflow-hidden group">
                 {/* Step Number Background */}
-                <div className="absolute -right-4 -top-4 text-[120px] font-bold text-[#27272a]/50 leading-none select-none">
+                <div className="absolute -right-4 -top-4 text-[120px] font-bold text-[#1e3a5f]/30 leading-none select-none">
                   {step.number}
                 </div>
 
@@ -84,29 +84,29 @@ export default function Process() {
                   {/* Number and Duration */}
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-3">
-                      <span className="text-sm font-bold text-[#6366f1]">{step.number}</span>
-                      <div className="w-8 h-px bg-[#27272a]" />
+                      <span className="text-sm font-bold text-blue-500">{step.number}</span>
+                      <div className="w-8 h-px bg-[#1e3a5f]" />
                     </div>
-                    <span className="text-xs text-[#71717a] bg-[#27272a] px-3 py-1 rounded-full">
+                    <span className="text-xs text-white/40 bg-[#0f1729] px-3 py-1 rounded-full border border-[#1e3a5f]">
                       {step.duration}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-[#6366f1] transition-colors">
+                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
                     {step.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-[#a1a1aa] text-sm leading-relaxed mb-6">
+                  <p className="text-white/50 text-sm leading-relaxed mb-6">
                     {step.description}
                   </p>
 
                   {/* Deliverables */}
                   <div className="space-y-2">
                     {step.deliverables.map((deliverable) => (
-                      <div key={deliverable} className="flex items-center gap-2 text-sm text-[#71717a]">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#6366f1]" />
+                      <div key={deliverable} className="flex items-center gap-2 text-sm text-white/40">
+                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
                         {deliverable}
                       </div>
                     ))}
