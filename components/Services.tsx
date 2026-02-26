@@ -10,10 +10,10 @@ const services = [
   {
     id: 1,
     title: "AI Compliance",
-    color: "from-[#1a3d2e] to-[#0d1f17]",
+    color: "from-[#065f46] to-[#022c22]",
     titleColor: "text-emerald-400",
     accentRgb: "52, 211, 153",
-    buttonBg: "bg-emerald-400 text-black hover:bg-emerald-300",
+    buttonBg: "bg-emerald-500 text-white hover:bg-emerald-400",
     tags: ["EU AI Act", "Colorado AI Act", "California AI Act", "Risk Assessment", "Audit"],
     description:
       "Navigate the complex landscape of AI regulations with confidence. We provide comprehensive compliance solutions for EU AI Act, Colorado AI Act, and California AI Act, ensuring your AI systems meet all regulatory requirements.",
@@ -23,10 +23,10 @@ const services = [
   {
     id: 2,
     title: "Legal",
-    color: "from-[#3d1a4d] to-[#1f0d27]",
-    titleColor: "text-purple-400",
-    accentRgb: "192, 132, 252",
-    buttonBg: "bg-purple-400 text-black hover:bg-purple-300",
+    color: "from-[#4c1d95] to-[#1e1b4b]",
+    titleColor: "text-violet-300",
+    accentRgb: "167, 139, 250",
+    buttonBg: "bg-violet-500 text-white hover:bg-violet-400",
     tags: ["Contract Analysis", "Legal AI Tools", "Compliance Audit", "Documentation", "Advisory"],
     description:
       "Empower your legal operations with AI-driven solutions. From contract analysis to compliance documentation, we help law firms and legal departments leverage AI while maintaining ethical standards.",
@@ -36,10 +36,10 @@ const services = [
   {
     id: 3,
     title: "Retail",
-    color: "from-[#0c3547] to-[#061a24]",
-    titleColor: "text-cyan-400",
-    accentRgb: "34, 211, 238",
-    buttonBg: "bg-cyan-400 text-black hover:bg-cyan-300",
+    color: "from-[#9b111e] to-[#450a0a]",
+    titleColor: "text-rose-300",
+    accentRgb: "251, 113, 133",
+    buttonBg: "bg-rose-500 text-white hover:bg-rose-400",
     tags: ["Customer AI", "Inventory", "Personalization", "Analytics", "E-commerce"],
     description:
       "Revolutionize retail experiences with intelligent AI systems. From personalized recommendations to inventory optimization, we help retailers implement AI solutions that comply with consumer protection regulations.",

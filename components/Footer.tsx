@@ -1,5 +1,4 @@
 "use client";
-
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
@@ -65,170 +64,88 @@ function FooterColumn({
 }
 
 export default function Footer() {
-  const ctaRef = useRef(null);
-  const ctaInView = useInView(ctaRef, { once: true, margin: "-60px" });
-
   return (
-    <footer className="bg-[#060a12] relative overflow-hidden">
-      {/* ── CTA Banner ── */}
-      <div ref={ctaRef} className="border-b border-white/[0.04]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={ctaInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, ease }}
-            className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8"
-          >
-            <div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight">
-                <span className="text-white/20">Ready to make</span>
-                <br />
-                <span className="text-white">your AI compliant?</span>
-              </h2>
-            </div>
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={ctaInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2, ease }}
-              className="flex flex-wrap gap-3"
-            >
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-blue-500 text-white text-sm font-medium rounded-full hover:bg-blue-400 transition-colors duration-300"
-              >
-                Start a project
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/services"
-                className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/[0.1] text-white/60 text-sm font-medium rounded-full hover:bg-white/[0.04] hover:text-white transition-all duration-300"
-              >
-                Our services
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* ── Main Footer ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
-          {/* Brand column */}
-          <div className="lg:col-span-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, ease }}
-            >
-              <Image
-                src="/logo.png"
-                alt="DataMills"
-                width={48}
-                height={48}
-                className="w-12 h-12 mb-6"
-              />
-              <p className="text-white/35 text-sm leading-relaxed max-w-xs mb-8">
-                We help organizations build AI systems that meet regulatory requirements across Healthcare, Legal, and Retail industries.
-              </p>
-
-              {/* Social icons */}
-              <div className="flex gap-2">
-                {followLinks.map((link) => (
-                  <a
-                    key={link.abbr}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-full border border-white/[0.06] flex items-center justify-center text-white/30 text-[11px] font-semibold hover:border-blue-500/30 hover:text-blue-400 hover:bg-blue-500/[0.05] transition-all duration-300"
-                  >
-                    {link.abbr}
-                  </a>
-                ))}
-              </div>
-            </motion.div>
+    <footer className="bg-[#0a0f1a] pt-24 pb-12 overflow-hidden border-t border-white/[0.05]">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        {/* Top Section: Headline + Nav */}
+        <div className="flex flex-col md:flex-row justify-between gap-12 mb-24">
+          <div className="max-w-sm">
+            <h2 className="text-3xl md:text-4xl font-medium text-white leading-tight">
+              Experience <br />
+              <span className="text-white/40 italic font-light">Compliance</span>
+            </h2>
           </div>
 
-          {/* Link columns */}
-          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
-            <FooterColumn title="Menu" delay={0.1}>
+          <div className="grid grid-cols-2 gap-12 md:gap-24">
+            <div>
+              <h4 className="text-[10px] uppercase tracking-[0.2em] text-white/30 font-bold mb-6">Navigation</h4>
               <ul className="space-y-3">
                 {menuLinks.map((link) => (
                   <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-white/40 text-sm hover:text-white transition-colors duration-300 inline-flex items-center gap-1 group"
-                    >
+                    <Link href={link.href} className="text-sm text-white/50 hover:text-white transition-colors duration-300">
                       {link.name}
-                      <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-0.5 group-hover:opacity-50 group-hover:translate-y-0 transition-all duration-200" />
                     </Link>
                   </li>
                 ))}
               </ul>
-            </FooterColumn>
-
-            <FooterColumn title="Services" delay={0.15}>
+            </div>
+            <div>
+              <h4 className="text-[10px] uppercase tracking-[0.2em] text-white/30 font-bold mb-6">Services</h4>
               <ul className="space-y-3">
                 {servicesLinks.map((link) => (
                   <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-white/40 text-sm hover:text-white transition-colors duration-300"
-                    >
+                    <Link href={link.href} className="text-sm text-white/50 hover:text-white transition-colors duration-300">
                       {link.name}
                     </Link>
                   </li>
                 ))}
               </ul>
-            </FooterColumn>
-
-            <FooterColumn title="Legal" delay={0.2}>
-              <ul className="space-y-3">
-                {legalLinks.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-white/40 text-sm hover:text-white transition-colors duration-300"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </FooterColumn>
-
-            <FooterColumn title="Contact" delay={0.25}>
-              <ul className="space-y-3">
-                <li>
-                  <a href="mailto:hello@datamills.ai" className="text-white/40 text-sm hover:text-blue-400 transition-colors duration-300">
-                    hello@datamills.ai
-                  </a>
-                </li>
-                <li>
-                  <a href="tel:+1234567890" className="text-white/40 text-sm hover:text-white transition-colors duration-300">
-                    +1 (234) 567-890
-                  </a>
-                </li>
-              </ul>
-            </FooterColumn>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* ── Bottom bar ── */}
-      <div className="border-t border-white/[0.04]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/20 text-xs">
-            &copy; {new Date().getFullYear()} DataMills. All rights reserved.
-          </p>
+        {/* Center Section: BIG BRANDING - High Impact & Visible */}
+        <div className="relative select-none pointer-events-none py-12">
+          <motion.h1
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            className="text-[16vw] font-black leading-none tracking-[-0.07em] text-white text-center drop-shadow-[0_0_30px_rgba(255,255,255,0.05)]"
+          >
+            DataMills
+          </motion.h1>
         </div>
-      </div>
 
-      {/* ── Large watermark ── */}
-      <div className="relative overflow-hidden pointer-events-none">
-        <p className="text-[16vw] font-bold text-white/[0.015] whitespace-nowrap text-center leading-none translate-y-[30%] select-none">
-          datamills
-        </p>
+        {/* Bottom Section: Branding & Copyright - Enhanced Visibility */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-12 border-t border-white/[0.08]">
+          <div className="flex items-center gap-6">
+            <span className="text-xl font-black text-white tracking-tighter hover:text-blue-400 transition-colors cursor-default">
+              DataMills
+            </span>
+            <span className="w-px h-4 bg-white/10 hidden md:block" />
+            <span className="text-[11px] font-medium text-white/40 tracking-wider hidden md:block uppercase">
+              Compliance Systems
+            </span>
+          </div>
+
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4">
+            <div className="flex gap-6">
+              {legalLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-[10px] uppercase tracking-widest text-white/30 hover:text-white transition-colors duration-300"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+            <div className="text-[10px] uppercase tracking-[0.2em] text-white/20 font-medium">
+              © {new Date().getFullYear()} DataMills All rights reserved
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   );
