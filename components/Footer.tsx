@@ -55,7 +55,7 @@ function FooterColumn({
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay, ease }}
     >
-      <h3 className="text-[11px] uppercase tracking-[0.2em] text-white/25 font-medium mb-6">
+      <h3 className="text-[11px] uppercase tracking-[0.2em] text-text-primary/25 font-medium mb-6">
         {title}
       </h3>
       {children}
@@ -65,24 +65,24 @@ function FooterColumn({
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0a0f1a] pt-24 pb-12 overflow-hidden border-t border-white/[0.05]">
+    <footer className="bg-bg-primary pt-24 pb-12 overflow-hidden border-t border-border/50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Top Section: Headline + Nav */}
         <div className="flex flex-col md:flex-row justify-between gap-12 mb-24">
           <div className="max-w-sm">
-            <h2 className="text-3xl md:text-4xl font-medium text-white leading-tight">
+            <h2 className="text-3xl md:text-4xl font-medium text-text-primary leading-tight">
               Experience <br />
-              <span className="text-white/40 italic font-light">Compliance</span>
+              <span className="text-text-muted italic font-light">Compliance</span>
             </h2>
           </div>
 
           <div className="grid grid-cols-2 gap-12 md:gap-24">
             <div>
-              <h4 className="text-[10px] uppercase tracking-[0.2em] text-white/30 font-bold mb-6">Navigation</h4>
+              <h4 className="text-[10px] uppercase tracking-[0.2em] text-text-muted font-bold mb-6">Navigation</h4>
               <ul className="space-y-3">
                 {menuLinks.map((link) => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-sm text-white/50 hover:text-white transition-colors duration-300">
+                    <Link href={link.href} className="text-sm text-text-secondary hover:text-accent transition-colors duration-300">
                       {link.name}
                     </Link>
                   </li>
@@ -90,11 +90,11 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h4 className="text-[10px] uppercase tracking-[0.2em] text-white/30 font-bold mb-6">Services</h4>
+              <h4 className="text-[10px] uppercase tracking-[0.2em] text-text-muted font-bold mb-6">Services</h4>
               <ul className="space-y-3">
                 {servicesLinks.map((link) => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-sm text-white/50 hover:text-white transition-colors duration-300">
+                    <Link href={link.href} className="text-sm text-text-secondary hover:text-accent transition-colors duration-300">
                       {link.name}
                     </Link>
                   </li>
@@ -111,20 +111,20 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[16vw] font-black leading-none tracking-[-0.07em] text-white text-center drop-shadow-[0_0_30px_rgba(255,255,255,0.05)]"
+            className="text-[16vw] font-black leading-none tracking-[-0.07em] text-text-primary/5 text-center"
           >
             DataMills
           </motion.h1>
         </div>
 
         {/* Bottom Section: Branding & Copyright - Enhanced Visibility */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-12 border-t border-white/[0.08]">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-12 border-t border-border">
           <div className="flex items-center gap-6">
-            <span className="text-xl font-black text-white tracking-tighter hover:text-blue-400 transition-colors cursor-default">
+            <span className="text-xl font-black text-text-primary tracking-tighter hover:text-accent transition-colors cursor-default">
               DataMills
             </span>
-            <span className="w-px h-4 bg-white/10 hidden md:block" />
-            <span className="text-[11px] font-medium text-white/40 tracking-wider hidden md:block uppercase">
+            <span className="w-px h-4 bg-border hidden md:block" />
+            <span className="text-[11px] font-medium text-text-muted tracking-wider hidden md:block uppercase">
               Compliance Systems
             </span>
           </div>
@@ -135,13 +135,13 @@ export default function Footer() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-[10px] uppercase tracking-widest text-white/30 hover:text-white transition-colors duration-300"
+                  className="text-[10px] uppercase tracking-widest text-text-muted hover:text-accent transition-colors duration-300"
                 >
                   {link.name}
                 </Link>
               ))}
             </div>
-            <div className="text-[10px] uppercase tracking-[0.2em] text-white/20 font-medium">
+            <div className="text-[10px] uppercase tracking-[0.2em] text-text-muted/40 font-medium">
               © {new Date().getFullYear()} DataMills All rights reserved
             </div>
           </div>

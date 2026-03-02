@@ -28,12 +28,12 @@ export default function ContactPage() {
         </div>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-3xl mx-auto">
-            <span className="tag mb-6 border-blue-500/30 bg-blue-500/5 text-blue-300">Contact us</span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
+            <span className="inline-block px-4 py-1.5 bg-accent/10 border border-accent/20 rounded-full text-[12px] uppercase tracking-[0.2em] text-accent font-bold mb-6">Contact us</span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-text-primary mb-6 tracking-tight">
               Let&apos;s start a
               <span className="gradient-text"> conversation</span>
             </h1>
-            <p className="text-xl text-slate-300/90 font-medium">
+            <p className="text-xl text-text-secondary font-medium">
               Ready to navigate AI compliance with confidence? We&apos;re here to help.
             </p>
           </motion.div>
@@ -41,22 +41,22 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-16 relative bg-[#0e1424]">
+      <section className="py-16 relative bg-bg-primary">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {contactInfo.map((item, index) => (
               <motion.div key={item.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }}>
-                <div className="glass-panel p-8 text-center h-full hover:border-blue-500/30 transition-all duration-300 group">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                    <item.icon className="w-7 h-7 text-blue-400" />
+                <div className="glass-panel p-8 text-center h-full hover:border-accent/30 transition-all duration-300 group bg-bg-card/50 backdrop-blur-xl border border-border rounded-3xl">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent/20 to-purple-500/20 border border-accent/20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                    <item.icon className="w-7 h-7 text-accent" />
                   </div>
-                  <p className="text-slate-400 text-sm font-semibold uppercase tracking-wider mb-2">{item.label}</p>
+                  <p className="text-text-muted text-sm font-semibold uppercase tracking-wider mb-2">{item.label}</p>
                   {item.href ? (
-                    <a href={item.href} className="text-lg text-white hover:text-blue-400 transition-colors font-bold">
+                    <a href={item.href} className="text-lg text-text-primary hover:text-accent transition-colors font-bold">
                       {item.value}
                     </a>
                   ) : (
-                    <p className="text-lg text-white font-bold">{item.value}</p>
+                    <p className="text-lg text-text-primary font-bold">{item.value}</p>
                   )}
                 </div>
               </motion.div>
@@ -68,18 +68,18 @@ export default function ContactPage() {
       <ContactSection />
 
       {/* FAQ Section */}
-      <section className="py-24 relative bg-[#0e1424]">
+      <section className="py-24 relative bg-bg-primary">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-            <span className="tag mb-4 border-blue-500/30 bg-blue-500/5 text-blue-300">FAQ</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">Frequently asked questions</h2>
+            <span className="inline-block px-4 py-1.5 bg-accent/10 border border-accent/20 rounded-full text-[12px] uppercase tracking-[0.2em] text-accent font-bold mb-4">FAQ</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-text-primary tracking-tight">Frequently asked questions</h2>
           </motion.div>
           <div className="space-y-6">
             {faqs.map((faq, index) => (
               <motion.div key={faq.q} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }}>
-                <div className="glass-panel p-8 hover:bg-white/[0.05] transition-colors">
-                  <h3 className="text-xl font-bold text-white mb-4">{faq.q}</h3>
-                  <p className="text-slate-300/80 leading-relaxed">{faq.a}</p>
+                <div className="glass-panel p-8 hover:bg-bg-card/80 transition-colors bg-bg-card/50 backdrop-blur-xl border border-border rounded-2xl">
+                  <h3 className="text-xl font-bold text-text-primary mb-4">{faq.q}</h3>
+                  <p className="text-text-secondary leading-relaxed">{faq.a}</p>
                 </div>
               </motion.div>
             ))}

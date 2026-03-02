@@ -30,7 +30,7 @@ export default function CareersPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-3xl mx-auto">
             <span className="tag mb-6">Careers</span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
               Join our
               <span className="gradient-text"> mission</span>
             </h1>
@@ -47,7 +47,7 @@ export default function CareersPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <span className="tag mb-4">Our culture</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Work that matters</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">Work that matters</h2>
               <div className="space-y-4 text-[#a1a1aa]">
                 <p>At DataMills, we&apos;re building a team of passionate professionals who believe in the power of responsible AI.</p>
                 <p>We offer competitive compensation, flexible remote work, and the opportunity to work on challenging problems at the intersection of technology and regulation.</p>
@@ -61,7 +61,7 @@ export default function CareersPage() {
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#6366f1]/20 to-[#a855f7]/20 border border-[#6366f1]/30 flex items-center justify-center mx-auto mb-4">
                       <value.icon className="w-6 h-6 text-[#6366f1]" />
                     </div>
-                    <h3 className="font-semibold text-white mb-1">{value.title}</h3>
+                    <h3 className="font-semibold text-text-primary mb-1">{value.title}</h3>
                     <p className="text-xs text-[#71717a]">{value.description}</p>
                   </div>
                 ))}
@@ -76,7 +76,7 @@ export default function CareersPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
             <span className="tag mb-4">Open positions</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Join our team</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">Join our team</h2>
             <p className="text-[#a1a1aa]">Find your next opportunity with us.</p>
           </motion.div>
           <div className="space-y-4">
@@ -85,7 +85,7 @@ export default function CareersPage() {
                 <Link href="/contact" className="block group">
                   <div className="card p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
-                      <h3 className="text-lg font-semibold text-white group-hover:text-[#6366f1] transition-colors mb-2">{position.title}</h3>
+                      <h3 className="text-lg font-semibold text-text-primary group-hover:text-[#6366f1] transition-colors mb-2">{position.title}</h3>
                       <div className="flex flex-wrap items-center gap-4 text-sm text-[#71717a]">
                         <span className="flex items-center gap-1"><Briefcase className="w-4 h-4" />{position.department}</span>
                         <span className="flex items-center gap-1"><MapPin className="w-4 h-4" />{position.location}</span>
@@ -107,7 +107,7 @@ export default function CareersPage() {
           <div className="card p-12 lg:p-16 text-center relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-[#6366f1]/10 to-[#a855f7]/10" />
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Don&apos;t see the right fit?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">Don&apos;t see the right fit?</h2>
               <p className="text-[#a1a1aa] max-w-2xl mx-auto mb-8">We&apos;re always looking for talented people. Send us your resume and let&apos;s talk.</p>
               <Link href="/contact" className="btn-primary inline-flex items-center gap-2 group">
                 Get in touch

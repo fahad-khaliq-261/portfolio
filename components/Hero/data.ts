@@ -1,9 +1,9 @@
 export const rotatingWords = ["Healthcare", "Legal", "Retail", "Innovation"];
 
 export const headlineLines = [
-    { text: "WE BUILD AI", color: "text-white" },
-    { text: "COMPLIANCE", color: "text-white" },
-    { text: "SYSTEMS", color: "text-white", glowLastWord: true },
+    { text: "WE BUILD AI", color: "text-text-primary" },
+    { text: "COMPLIANCE", color: "text-text-primary" },
+    { text: "SYSTEMS", color: "text-text-primary", glowLastWord: true },
 ];
 
 export const blueAccent = {

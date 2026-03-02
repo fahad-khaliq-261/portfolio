@@ -45,7 +45,7 @@ export default function Partners() {
               className="flex-shrink-0 mx-8 flex items-center"
             >
               <div className="px-6 py-3 border border-[#27272a] rounded-lg bg-[#18181b]/50 hover:border-[#6366f1]/50 transition-colors">
-                <span className="text-[#71717a] font-medium text-sm whitespace-nowrap hover:text-white transition-colors">
+                <span className="text-[#71717a] font-medium text-sm whitespace-nowrap hover:text-text-primary transition-colors">
                   {partner}
                 </span>
               </div>

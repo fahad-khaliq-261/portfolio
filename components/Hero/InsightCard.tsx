@@ -22,11 +22,10 @@ export default function InsightCard({ card, index }: InsightCardProps) {
         >
             <Link
                 href={card.href}
-                className="block relative overflow-hidden min-h-[280px] sm:min-h-[310px]"
+                className="block relative overflow-hidden min-h-[280px] sm:min-h-[310px] bg-bg-card border border-border"
                 style={{
                     borderRadius: "16px",
-                    background: "linear-gradient(160deg, #0d1628 0%, #080e1c 100%)",
-                    boxShadow: `0 0 0 1px rgba(255,255,255,0.06), 0 20px 60px rgba(0,0,0,0.6)`,
+                    boxShadow: `0 0 0 1px rgba(var(--accent-rgb), 0.06), 0 20px 60px rgba(0,0,0,0.1)`,
                 }}
             >
                 {/* ── PER-CARD NEON LEFT ACCENT BAR ── */}
@@ -48,20 +47,10 @@ export default function InsightCard({ card, index }: InsightCardProps) {
 
                 {/* ── GIANT GHOST INDEX NUMBER ── */}
                 <div
-                    className="absolute -right-2 -top-4 text-[110px] font-black leading-none select-none pointer-events-none z-10"
+                    className="absolute -right-2 -top-4 text-[110px] font-black leading-none select-none pointer-events-none z-10 opacity-10"
                     style={{
                         color: "transparent",
-                        WebkitTextStroke: `1px ${card.accent.bar}18`,
-                        letterSpacing: "-0.05em",
-                    }}
-                >
-                    {String(index + 1).padStart(2, "0")}
-                </div>
-                <div
-                    className="absolute -right-2 -top-4 text-[110px] font-black leading-none select-none pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    style={{
-                        color: "transparent",
-                        WebkitTextStroke: `1px ${card.accent.bar}44`,
+                        WebkitTextStroke: `1px var(--accent)`,
                         letterSpacing: "-0.05em",
                     }}
                 >
@@ -74,17 +63,17 @@ export default function InsightCard({ card, index }: InsightCardProps) {
                         src={card.image}
                         alt={card.title}
                         fill
-                        className="object-cover opacity-80 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
+                        className="object-cover opacity-20 dark:opacity-80 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
                     {/* Subtle Gradient for Text Contrast */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0e1424] via-[#0e1424]/40 to-transparent z-10" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-bg-card via-bg-card/40 to-transparent z-10" />
                 </div>
 
                 {/* ── GLASS GLINT EFFECTS ── */}
                 <div className="absolute inset-0 z-10 overflow-hidden rounded-2xl pointer-events-none">
                     <motion.div
-                        className="absolute inset-0 w-[40%] h-full skew-x-[-25deg] bg-gradient-to-r from-transparent via-white/[0.15] to-transparent"
+                        className="absolute inset-0 w-[40%] h-full skew-x-[-25deg] bg-gradient-to-r from-transparent via-accent/[0.15] to-transparent"
                         initial={{ left: "-100%" }}
                         whileHover={{ left: "200%" }}
                         transition={{ duration: 0.8, ease: "easeInOut" }}
@@ -98,11 +87,11 @@ export default function InsightCard({ card, index }: InsightCardProps) {
                         <span
                             className="px-3 py-1 text-[10px] uppercase tracking-[0.2em] font-black whitespace-nowrap"
                             style={{
-                                background: "rgba(255, 255, 255, 0.1)",
+                                background: "var(--bg-secondary)",
                                 backdropFilter: "blur(12px)",
-                                border: "1px solid rgba(255, 255, 255, 0.2)",
+                                border: "1px solid var(--border)",
                                 borderRadius: "8px",
-                                color: "#fff",
+                                color: "var(--text-primary)",
                             }}
                         >
                             {card.category}
@@ -110,11 +99,11 @@ export default function InsightCard({ card, index }: InsightCardProps) {
                     </div>
 
                     {/* Bottom Section: Consolidated Title & Action Block */}
-                    <div className="glass-panel p-5 rounded-2xl border-white/20 flex flex-col justify-between min-h-[170px] md:min-h-[190px]">
+                    <div className="glass-panel p-5 rounded-2xl border-border flex flex-col justify-between min-h-[170px] md:min-h-[190px]">
                         <div>
                             <h3
-                                className="text-white font-black text-xl md:text-[22px] leading-[1.2] tracking-tight mb-4 line-clamp-2"
-                                style={{ textShadow: "0 4px 12px rgba(0,0,0,0.5)" }}
+                                className="text-text-primary font-black text-xl md:text-[22px] leading-[1.2] tracking-tight mb-4 line-clamp-2"
+                                style={{ textShadow: "0 4px 12px rgba(var(--bg-primary-rgb),0.5)" }}
                             >
                                 {card.title}
                             </h3>
@@ -122,7 +111,7 @@ export default function InsightCard({ card, index }: InsightCardProps) {
                             {/* Progress Bar */}
                             <div
                                 className="w-full h-[3px] rounded-full overflow-hidden"
-                                style={{ background: "rgba(255,255,255,0.15)" }}
+                                style={{ background: "var(--bg-secondary)" }}
                             >
                                 <motion.div
                                     className="h-full rounded-full"
@@ -134,16 +123,16 @@ export default function InsightCard({ card, index }: InsightCardProps) {
                             </div>
                         </div>
 
-                        <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                        <div className="flex items-center justify-between pt-4 border-t border-border">
                             <motion.span
-                                className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-white/70 group-hover:text-white transition-colors"
+                                className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-text-muted group-hover:text-text-primary transition-all"
                             >
                                 Read full insight
                                 <motion.span
                                     animate={{ x: [0, 4, 0] }}
                                     transition={{ duration: 2, repeat: Infinity }}
                                 >
-                                    <ArrowUpRight className="w-3 h-3 text-blue-400" />
+                                    <ArrowUpRight className="w-3 h-3 text-accent" />
                                 </motion.span>
                             </motion.span>
                         </div>

@@ -9,7 +9,7 @@ const StarField = dynamic(() => import("../StarField"), { ssr: false });
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen flex flex-col bg-[#0e1424] overflow-hidden">
+        <section className="relative min-h-screen flex flex-col bg-bg-primary overflow-hidden">
             {/* Three.js StarField Background */}
             <StarField />
 

@@ -65,11 +65,11 @@ export default function HeroHeadline() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.5, duration: 0.6 }}
-                className="mt-8 text-white/50 text-lg max-w-md"
+                className="mt-8 text-text-secondary text-lg max-w-md"
             >
                 Your trusted partner for{" "}
                 <motion.span
-                    className="text-white font-medium"
+                    className="text-text-primary font-medium"
                     animate={{ opacity: [0.7, 1, 0.7] }}
                     transition={{ duration: 2, repeat: Infinity }}
                 >

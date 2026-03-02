@@ -37,7 +37,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="py-24 relative overflow-hidden bg-[#0a0f1a]">
+    <section className="py-24 relative overflow-hidden bg-bg-primary">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -48,14 +48,14 @@ export default function Process() {
         >
           <span className="tag mb-4">How we work</span>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary">
               How we bring
               <br />
               <span className="gradient-text">ideas to life</span>
             </h2>
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 text-[#a1a1aa] hover:text-white transition-colors group"
+              className="inline-flex items-center gap-2 text-[#a1a1aa] hover:text-text-primary transition-colors group"
             >
               Learn more about us
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -87,25 +87,25 @@ export default function Process() {
                       <span className="text-sm font-bold text-blue-500">{step.number}</span>
                       <div className="w-8 h-px bg-[#1e3a5f]" />
                     </div>
-                    <span className="text-xs text-white/40 bg-[#0f1729] px-3 py-1 rounded-full border border-[#1e3a5f]">
+                    <span className="text-xs text-text-primary/40 bg-[#0f1729] px-3 py-1 rounded-full border border-[#1e3a5f]">
                       {step.duration}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-2xl font-bold text-text-primary mb-4 group-hover:text-blue-400 transition-colors">
                     {step.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-white/50 text-sm leading-relaxed mb-6">
+                  <p className="text-text-primary/50 text-sm leading-relaxed mb-6">
                     {step.description}
                   </p>
 
                   {/* Deliverables */}
                   <div className="space-y-2">
                     {step.deliverables.map((deliverable) => (
-                      <div key={deliverable} className="flex items-center gap-2 text-sm text-white/40">
+                      <div key={deliverable} className="flex items-center gap-2 text-sm text-text-primary/40">
                         <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
                         {deliverable}
                       </div>

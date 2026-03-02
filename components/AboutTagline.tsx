@@ -62,7 +62,7 @@ export default function AboutTagline() {
   return (
     <section
       ref={sectionRef}
-      className="py-32 sm:py-40 bg-[#0a0f1a] relative overflow-hidden"
+      className="py-32 sm:py-40 bg-bg-primary relative overflow-hidden"
     >
       {/* Mouse-following glow orb */}
       <div
@@ -108,11 +108,11 @@ export default function AboutTagline() {
         <div className="text-center mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.4] sm:leading-[1.5] tracking-tight">
             <AnimatedLine delay={0}>
-              <span className="text-white/30 font-light">We&apos;re an </span>
-              <span className="text-white font-semibold">AI compliance agency</span>
+              <span className="text-text-primary/30 font-light">We&apos;re an </span>
+              <span className="text-text-primary font-semibold">AI compliance agency</span>
             </AnimatedLine>
             <AnimatedLine delay={0.12}>
-              <span className="text-white/30 font-light">founded by tech passionate enthusiasts.</span>
+              <span className="text-text-primary/30 font-light">founded by tech passionate enthusiasts.</span>
             </AnimatedLine>
           </h2>
         </div>
@@ -121,26 +121,26 @@ export default function AboutTagline() {
         <div className="text-center mb-14">
           <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] leading-[1.4] sm:leading-[1.5] tracking-tight">
             <AnimatedLine delay={0.3}>
-              <span className="text-white/30 font-light">We provide </span>
-              <span className="text-white font-semibold">compliance solutions,</span>
+              <span className="text-text-primary/30 font-light">We provide </span>
+              <span className="text-text-primary font-semibold">compliance solutions,</span>
             </AnimatedLine>
             <AnimatedLine delay={0.42}>
-              <span className="text-white font-semibold">risk assessments </span>
-              <span className="text-white/30 font-light">and </span>
-              <span className="text-white font-semibold">AI strategies</span>
+              <span className="text-text-primary font-semibold">risk assessments </span>
+              <span className="text-text-primary/30 font-light">and </span>
+              <span className="text-text-primary font-semibold">AI strategies</span>
             </AnimatedLine>
             <AnimatedLine delay={0.54}>
-              <span className="text-white/30 font-light">that </span>
-              <span className="text-white font-semibold">redefine </span>
-              <span className="text-white/30 font-light">how </span>
-              <span className="text-white font-semibold">Healthcare,</span>
+              <span className="text-text-primary/30 font-light">that </span>
+              <span className="text-text-primary font-semibold">redefine </span>
+              <span className="text-text-primary/30 font-light">how </span>
+              <span className="text-text-primary font-semibold">Healthcare,</span>
             </AnimatedLine>
             <AnimatedLine delay={0.66}>
-              <span className="text-white font-semibold">Legal </span>
-              <span className="text-white/30 font-light">and </span>
-              <span className="text-white font-semibold">Retail </span>
-              <span className="text-white/30 font-light">navigate the </span>
-              <span className="text-white font-semibold">AI world.</span>
+              <span className="text-text-primary font-semibold">Legal </span>
+              <span className="text-text-primary/30 font-light">and </span>
+              <span className="text-text-primary font-semibold">Retail </span>
+              <span className="text-text-primary/30 font-light">navigate the </span>
+              <span className="text-text-primary font-semibold">AI world.</span>
             </AnimatedLine>
           </h3>
         </div>
@@ -162,14 +162,14 @@ export default function AboutTagline() {
         >
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 px-7 py-3.5 bg-white text-black text-sm font-medium rounded-full hover:bg-white/90 transition-all duration-300"
+            className="group inline-flex items-center gap-2 px-7 py-3.5 bg-bg-primary text-text-primary text-sm font-medium rounded-full hover:bg-bg-primary/90 transition-all duration-300"
           >
             Get in touch
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
           <Link
             href="/about"
-            className="px-7 py-3.5 bg-white/[0.06] border border-white/[0.1] text-white/70 text-sm font-medium rounded-full hover:bg-white/[0.1] hover:text-white transition-all duration-300"
+            className="px-7 py-3.5 bg-bg-primary/[0.06] border border-white/[0.1] text-text-primary/70 text-sm font-medium rounded-full hover:bg-bg-primary/[0.1] hover:text-text-primary transition-all duration-300"
           >
             More about us
           </Link>

@@ -33,7 +33,7 @@ export default function HeroInfo() {
                 />
 
                 {/* Title */}
-                <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight">
+                <h2 className="text-2xl md:text-3xl font-bold text-text-primary leading-tight">
                     Shaping compliant AI,{" "}
                     <span className="relative inline-block">
                         <AnimatePresence mode="wait">
@@ -43,7 +43,7 @@ export default function HeroInfo() {
                                 animate={{ y: 0, opacity: 1, rotateX: 0 }}
                                 exit={{ y: -20, opacity: 0, rotateX: 90 }}
                                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-                                className="inline-block text-blue-400"
+                                className="inline-block text-accent"
                             >
                                 {rotatingWords[currentIndex]}
                             </motion.span>
@@ -52,9 +52,9 @@ export default function HeroInfo() {
                 </h2>
 
                 {/* Description */}
-                <p className="text-white/50 text-sm leading-relaxed max-w-sm">
-                    Helping <span className="text-white">Healthcare</span>, <span className="text-white">Legal</span> & <span className="text-white">Retail</span> navigate{" "}
-                    <span className="text-blue-400">EU AI Act</span>, <span className="text-blue-400">Colorado AI Act</span> & <span className="text-blue-400">California AI Act</span>.
+                <p className="text-text-secondary text-base leading-relaxed max-w-sm">
+                    Helping <span className="text-text-primary">Healthcare</span>, <span className="text-text-primary">Legal</span> & <span className="text-text-primary">Retail</span> navigate{" "}
+                    <span className="text-accent">EU AI Act</span>, <span className="text-accent">Colorado AI Act</span> & <span className="text-accent">California AI Act</span>.
                 </p>
 
                 {/* CTA */}
@@ -65,11 +65,11 @@ export default function HeroInfo() {
                 >
                     <Link
                         href="/services"
-                        className="inline-flex items-center gap-3 text-white font-medium group"
+                        className="inline-flex items-center gap-3 text-text-primary font-medium group"
                     >
                         <span>See what we do</span>
                         <motion.span
-                            className="w-10 h-10 rounded-lg bg-blue-500 flex items-center justify-center"
+                            className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center text-text-primary"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
                         >

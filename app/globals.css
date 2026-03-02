@@ -23,9 +23,32 @@ html.lenis body {
 }
 
 :root {
-  /* Dark Blue Theme */
-  --bg-primary: #0e1424;
-  --bg-secondary: #131b31;
+  /* Light Mode Theme */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8fafc;
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-glow: rgba(37, 99, 235, 0.15);
+
+  --border: #e2e8f0;
+  --border-hover: #cbd5e1;
+
+  --success: #16a34a;
+  --gradient-start: #2563eb;
+  --gradient-end: #7c3aed;
+}
+
+.dark {
+  /* Dark Blue Theme (Current Aesthetic) */
+  --bg-primary: #0a0f1a;
+  --bg-secondary: #111827;
   --bg-card: #18233a;
   --bg-card-hover: #1e2c48;
 
@@ -48,9 +71,22 @@ html.lenis body {
 @theme inline {
   --color-bg-primary: var(--bg-primary);
   --color-bg-secondary: var(--bg-secondary);
+  --color-bg-card: var(--bg-card);
+  --color-bg-card-hover: var(--bg-card-hover);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
   --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-glow: var(--accent-glow);
+
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+
   --font-sans: var(--font-space-grotesk);
-  --font-display: var(--font-cabinet);
+  --font-display: var(--font-syne);
 }
 
 * {
@@ -349,7 +385,15 @@ textarea::placeholder {
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
+
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }

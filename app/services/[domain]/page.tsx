@@ -62,16 +62,26 @@ export default async function DomainPage({
     }
 
     // Fetch case studies for this domain
-    // Using the domain title or slug to filter in Supabase
-    const { data: caseStudies, error } = await supabase
+    // Using the domain title or slug to filter in Supabase. 
+    // We fetch all and filter in Javascript to allow fuzzy matching on aliases (e.g. "AI Act" vs "AI Compliance")
+    const { data: allCaseStudies, error } = await supabase
         .from("case_studies")
         .select("*")
-        .or(`domain.eq.${metadata.title},domain.eq.${domain}`)
         .order("created_at", { ascending: false });
 
     if (error) {
         console.error("Error fetching domain case studies:", error);
     }
+
+    const searchTerms = [metadata.title.toLowerCase(), domain.toLowerCase()];
+    if (domain === "ai-compliance") searchTerms.push("ai act", "compliance", "governance");
+    if (domain === "legal") searchTerms.push("law");
+    if (domain === "healthcare") searchTerms.push("health", "medical");
+
+    const caseStudies = (allCaseStudies || []).filter(cs => {
+        const csDomain = (cs.domain || "").toLowerCase();
+        return searchTerms.some(term => csDomain.includes(term));
+    });
 
     return (
         <DomainClient

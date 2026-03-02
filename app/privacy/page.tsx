@@ -11,7 +11,7 @@ export default function PrivacyPage() {
         </div>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Privacy Policy</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">Privacy Policy</h1>
             <p className="text-[#a1a1aa]">Last updated: February 19, 2026</p>
           </motion.div>
         </div>
@@ -22,12 +22,12 @@ export default function PrivacyPage() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="prose prose-invert max-w-none">
             <div className="space-y-8">
               <div className="card p-8">
-                <h2 className="text-2xl font-bold text-white mb-4">Introduction</h2>
+                <h2 className="text-2xl font-bold text-text-primary mb-4">Introduction</h2>
                 <p className="text-[#a1a1aa]">DataMills (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit our website or use our services.</p>
               </div>
 
               <div className="card p-8">
-                <h2 className="text-2xl font-bold text-white mb-4">Information We Collect</h2>
+                <h2 className="text-2xl font-bold text-text-primary mb-4">Information We Collect</h2>
                 <ul className="list-disc list-inside text-[#a1a1aa] space-y-2">
                   <li>Personal identification information (name, email address, phone number)</li>
                   <li>Company or organization information</li>
@@ -38,7 +38,7 @@ export default function PrivacyPage() {
               </div>
 
               <div className="card p-8">
-                <h2 className="text-2xl font-bold text-white mb-4">How We Use Your Information</h2>
+                <h2 className="text-2xl font-bold text-text-primary mb-4">How We Use Your Information</h2>
                 <ul className="list-disc list-inside text-[#a1a1aa] space-y-2">
                   <li>Provide and improve our services</li>
                   <li>Communicate with you about our services</li>
@@ -49,7 +49,7 @@ export default function PrivacyPage() {
               </div>
 
               <div className="card p-8">
-                <h2 className="text-2xl font-bold text-white mb-4">Your Rights</h2>
+                <h2 className="text-2xl font-bold text-text-primary mb-4">Your Rights</h2>
                 <ul className="list-disc list-inside text-[#a1a1aa] space-y-2">
                   <li>Access your personal data</li>
                   <li>Correct inaccurate data</li>
@@ -60,7 +60,7 @@ export default function PrivacyPage() {
               </div>
 
               <div className="card p-8">
-                <h2 className="text-2xl font-bold text-white mb-4">Contact Us</h2>
+                <h2 className="text-2xl font-bold text-text-primary mb-4">Contact Us</h2>
                 <p className="text-[#a1a1aa]">If you have any questions about this privacy policy, please contact us at <a href="mailto:privacy@datamills.io" className="text-[#6366f1] hover:underline">privacy@datamills.io</a>.</p>
               </div>
             </div>

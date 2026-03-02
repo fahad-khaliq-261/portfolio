@@ -26,7 +26,7 @@ export default function InsightsPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-3xl mx-auto">
             <span className="tag mb-6">Insights</span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
               Ideas &
               <span className="gradient-text"> inspiration</span>
             </h1>
@@ -42,7 +42,7 @@ export default function InsightsPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex flex-wrap gap-2 justify-center">
             {categories.map((category) => (
-              <button key={category} className={`px-4 py-2 rounded-lg text-sm transition-all ${category === "All" ? "bg-[#6366f1] text-white" : "bg-[#18181b] text-[#a1a1aa] hover:bg-[#27272a]"}`}>
+              <button key={category} className={`px-4 py-2 rounded-lg text-sm transition-all ${category === "All" ? "bg-[#6366f1] text-text-primary" : "bg-[#18181b] text-[#a1a1aa] hover:bg-[#27272a]"}`}>
                 {category}
               </button>
             ))}
@@ -63,7 +63,7 @@ export default function InsightsPage() {
                     </div>
                     <div className="p-6">
                       <span className="inline-block px-3 py-1 bg-[#6366f1]/20 text-[#6366f1] text-xs rounded-full mb-4">{article.category}</span>
-                      <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-[#6366f1] transition-colors">{article.title}</h3>
+                      <h3 className="text-lg font-semibold text-text-primary mb-3 group-hover:text-[#6366f1] transition-colors">{article.title}</h3>
                       <p className="text-[#a1a1aa] text-sm mb-4 line-clamp-2">{article.excerpt}</p>
                       <div className="flex items-center gap-4 text-xs text-[#71717a]">
                         <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{article.readTime}</span>
@@ -91,7 +91,7 @@ export default function InsightsPage() {
           <div className="card p-12 text-center relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-[#6366f1]/10 to-[#a855f7]/10" />
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Stay updated</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">Stay updated</h2>
               <p className="text-[#a1a1aa] max-w-xl mx-auto mb-8">Get the latest insights on AI compliance delivered to your inbox.</p>
               <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
                 <input type="email" placeholder="Enter your email" className="flex-1" required />

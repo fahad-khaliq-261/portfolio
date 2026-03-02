@@ -40,7 +40,7 @@ const industries = [
 
 export default function Industries() {
   return (
-    <section className="py-24 bg-[#0a0f1a] relative overflow-hidden">
+    <section className="py-24 bg-bg-primary relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.015]">
         <div
           className="absolute inset-0"
@@ -58,15 +58,15 @@ export default function Industries() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 bg-white/[0.04] border border-white/[0.08] rounded-full text-[11px] uppercase tracking-[0.2em] text-white/40 mb-5">
+          <span className="inline-block px-4 py-1.5 bg-bg-primary/[0.04] border border-white/[0.08] rounded-full text-[11px] uppercase tracking-[0.2em] text-text-primary/40 mb-5">
             Industries we serve
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
             Specialized expertise
             <br />
             <span className="gradient-text">for your sector</span>
           </h2>
-          <p className="text-white/40 max-w-2xl mx-auto">
+          <p className="text-text-primary/40 max-w-2xl mx-auto">
             Deep industry knowledge combined with AI compliance expertise to deliver tailored solutions for highly regulated sectors.
           </p>
         </motion.div>
@@ -95,21 +95,21 @@ export default function Industries() {
                     </div>
                     <div className="text-right">
                       <div className="text-2xl font-bold text-[#22c55e]">{industry.stat}</div>
-                      <div className="text-xs text-white/30">{industry.statLabel}</div>
+                      <div className="text-xs text-text-primary/30">{industry.statLabel}</div>
                     </div>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300">
+                  <h3 className="text-2xl font-bold text-text-primary mb-3 group-hover:text-blue-400 transition-colors duration-300">
                     {industry.title}
                   </h3>
 
-                  <p className="text-white/40 text-sm leading-relaxed mb-6 flex-1">
+                  <p className="text-text-primary/40 text-sm leading-relaxed mb-6 flex-1">
                     {industry.description}
                   </p>
 
                   <div className="space-y-2 mb-6">
                     {industry.features.map((feature) => (
-                      <div key={feature} className="flex items-center gap-2 text-sm text-white/30">
+                      <div key={feature} className="flex items-center gap-2 text-sm text-text-primary/30">
                         <div className="w-1 h-1 rounded-full bg-blue-500" />
                         {feature}
                       </div>

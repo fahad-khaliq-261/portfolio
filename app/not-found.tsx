@@ -13,7 +13,7 @@ export default function NotFound() {
         className="text-center px-6"
       >
         <div className="text-[150px] font-bold gradient-text leading-none mb-4">404</div>
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <h1 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
           Page not found
         </h1>
         <p className="text-[#a1a1aa] mb-8 max-w-md mx-auto">

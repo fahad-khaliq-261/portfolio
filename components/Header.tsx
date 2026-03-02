@@ -16,6 +16,8 @@ const navItems = [
 
 ];
 
+import { ThemeToggle } from "./ThemeToggle";
+
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function Header() {
@@ -48,19 +50,19 @@ export default function Header() {
         {/* Glass pill container */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
           <div
-            className="flex items-center justify-between h-14 px-4 sm:px-6 rounded-2xl transition-all duration-500"
+            className="flex items-center justify-between h-14 px-4 sm:px-6 rounded-2xl transition-all duration-500 border"
             style={{
               background: scrolled
-                ? "rgba(10, 15, 26, 0.72)"
-                : "rgba(10, 15, 26, 0.35)",
+                ? "var(--bg-secondary)"
+                : "transparent",
               backdropFilter: "blur(20px)",
               WebkitBackdropFilter: "blur(20px)",
-              border: scrolled
-                ? "1px solid rgba(255,255,255,0.08)"
-                : "1px solid rgba(255,255,255,0.05)",
+              borderColor: scrolled
+                ? "var(--border)"
+                : "rgba(128,128,128,0.1)",
               boxShadow: scrolled
-                ? "0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06)"
-                : "0 4px 24px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.04)",
+                ? "0 8px 32px rgba(0,0,0,0.1)"
+                : "none",
             }}
           >
             {/* Logo */}
@@ -70,7 +72,7 @@ export default function Header() {
                 alt="DataMills"
                 width={72}
                 height={72}
-                className="w-16 h-16 object-contain"
+                className="w-16 h-16 object-contain dark:invert-0 invert transition-all"
               />
             </Link>
 
@@ -85,7 +87,7 @@ export default function Header() {
                     className="relative px-4 py-2 group"
                   >
                     <span
-                      className={`text-sm font-medium tracking-wide transition-colors duration-200 ${isActive ? "text-white" : "text-white/55 group-hover:text-white"
+                      className={`text-sm font-medium tracking-wide transition-colors duration-200 ${isActive ? "text-accent" : "text-text-secondary group-hover:text-text-primary"
                         }`}
                     >
                       {item.name}
@@ -93,25 +95,27 @@ export default function Header() {
 
                     {/* Active indicator dot */}
                     <motion.span
-                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-blue-400"
+                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-accent"
                       initial={false}
                       animate={{ opacity: isActive ? 1 : 0, scale: isActive ? 1 : 0 }}
                       transition={{ duration: 0.2 }}
                     />
 
                     {/* Hover pill background */}
-                    <span className="absolute inset-0 rounded-xl bg-white/0 group-hover:bg-white/[0.05] transition-colors duration-200 pointer-events-none" />
+                    <span className="absolute inset-0 rounded-xl bg-accent/0 group-hover:bg-accent/5 transition-colors duration-200 pointer-events-none" />
                   </Link>
                 );
               })}
             </nav>
 
-            {/* Right: CTA + Hamburger */}
+            {/* Right: CTA + Toggle + Hamburger */}
             <div className="flex items-center gap-3">
+              <ThemeToggle />
+
               {/* CTA button — desktop only */}
               <Link
                 href="/contact"
-                className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white nav-cta-btn"
+                className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-text-primary nav-cta-btn"
               >
                 Contact us
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -120,11 +124,7 @@ export default function Header() {
               {/* Hamburger — mobile only */}
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="md:hidden w-9 h-9 flex items-center justify-center rounded-xl transition-colors duration-200"
-                style={{
-                  background: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                }}
+                className="md:hidden w-10 h-10 flex items-center justify-center rounded-xl transition-colors duration-200 border border-border bg-bg-secondary"
                 aria-label="Toggle menu"
               >
                 <AnimatePresence mode="wait" initial={false}>
@@ -136,7 +136,7 @@ export default function Header() {
                       exit={{ rotate: 90, opacity: 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <X className="w-4 h-4 text-white" />
+                      <X className="w-4 h-4 text-text-primary" />
                     </motion.span>
                   ) : (
                     <motion.span
@@ -146,7 +146,7 @@ export default function Header() {
                       exit={{ rotate: -90, opacity: 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <Menu className="w-4 h-4 text-white" />
+                      <Menu className="w-4 h-4 text-text-primary" />
                     </motion.span>
                   )}
                 </AnimatePresence>
@@ -167,13 +167,12 @@ export default function Header() {
                 className="md:hidden mt-2 rounded-2xl overflow-hidden"
               >
                 <div
-                  className="p-4 flex flex-col gap-1"
+                  className="p-4 flex flex-col gap-1 border border-border"
                   style={{
-                    background: "rgba(8, 14, 28, 0.92)",
+                    background: "var(--bg-secondary)",
                     backdropFilter: "blur(24px)",
                     WebkitBackdropFilter: "blur(24px)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                    boxShadow: "0 16px 48px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06)",
+                    boxShadow: "0 16px 48px rgba(0,0,0,0.2)",
                   }}
                 >
                   {navItems.map((item, i) => {
@@ -189,17 +188,17 @@ export default function Header() {
                           href={item.href}
                           onClick={close}
                           className={`flex items-center justify-between px-4 py-3 rounded-xl group transition-colors duration-200 ${isActive
-                            ? "bg-blue-500/10 border border-blue-500/20"
-                            : "border border-transparent hover:bg-white/[0.04]"
+                            ? "bg-accent/10 border border-accent/20"
+                            : "border border-transparent hover:bg-accent/5"
                             }`}
                         >
                           <span
-                            className={`text-sm font-medium ${isActive ? "text-blue-300" : "text-white/75"}`}
+                            className={`text-sm font-medium ${isActive ? "text-accent" : "text-text-secondary"}`}
                           >
                             {item.name}
                           </span>
                           <ArrowUpRight
-                            className={`w-3.5 h-3.5 transition-opacity ${isActive ? "text-blue-400 opacity-100" : "text-white/30 opacity-0 group-hover:opacity-100"
+                            className={`w-3.5 h-3.5 transition-opacity ${isActive ? "text-accent opacity-100" : "text-text-muted opacity-0 group-hover:opacity-100"
                               }`}
                           />
                         </Link>
@@ -209,17 +208,12 @@ export default function Header() {
 
                   {/* Divider + CTA */}
                   <div
-                    className="my-2 h-px"
-                    style={{ background: "rgba(255,255,255,0.06)" }}
+                    className="my-2 h-px bg-border"
                   />
                   <Link
                     href="/contact"
                     onClick={close}
-                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold text-white"
-                    style={{
-                      background: "linear-gradient(135deg, rgba(59,130,246,0.8), rgba(37,99,235,0.9))",
-                      border: "1px solid rgba(96,165,250,0.25)",
-                    }}
+                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold text-text-primary nav-cta-btn shadow-lg shadow-accent/20"
                   >
                     Get Started
                     <ArrowUpRight className="w-3.5 h-3.5" />

@@ -14,6 +14,14 @@ export async function processDocx(file: File, customTitle?: string, domain: stri
     const arrayBuffer = await file.arrayBuffer();
 
     const options = {
+        styleMap: [
+            "p[style-name='Heading 1'] => h1:fresh",
+            "p[style-name='Heading 2'] => h2:fresh",
+            "p[style-name='Heading 3'] => h3:fresh",
+            "p[style-name='Heading 4'] => h4:fresh",
+            "p[style-name='Quote'] => blockquote:fresh",
+            "p[style-name='Intense Quote'] => blockquote.intense:fresh",
+        ],
         convertImage: mammoth.images.imgElement(async (image) => {
             const contentType = image.contentType;
             const extension = contentType.split("/")[1];
@@ -29,7 +37,7 @@ export async function processDocx(file: File, customTitle?: string, domain: stri
 
             if (error) {
                 console.error("Error uploading image to Supabase:", error);
-                return { src: "" }; // Return empty src to satisfy Mammoth's ImageAttributes type
+                return { src: "" };
             }
 
             const { data: { publicUrl } } = supabase.storage
@@ -38,26 +46,45 @@ export async function processDocx(file: File, customTitle?: string, domain: stri
 
             return {
                 src: publicUrl,
-                class: "rounded-2xl my-12 shadow-2xl border border-white/10 mx-auto block max-w-full h-auto",
+                class: "rounded-3xl my-20 shadow-2xl border border-white/5 mx-auto block max-w-full h-auto",
             };
         }),
     };
 
     const result = await mammoth.convertToHtml({ arrayBuffer }, options);
+    let html = result.value;
+
+    // Post-processing: Wrap content into semantic sections based on headings
+    // We look for h1, h2, h3 and split the content
+    // Also inject IDs into headings for TOC support
+    html = html.replace(/<(h[1-3])>(.*?)<\/h[1-3]>/g, (match, tag, content) => {
+        const id = slugify(content, { lower: true, strict: true });
+        return `<${tag} id="${id}">${content}</${tag}>`;
+    });
+
+    const sections = html.split(/(?=<h[1-3])/g);
+    const processedHtml = sections
+        .map((section, index) => {
+            if (!section.trim()) return "";
+            return `<section class="cs-section mb-32" data-section="${index}">
+                ${section}
+            </section>`;
+        })
+        .join("");
 
     // Use custom title or fallback to filename
     const finalTitle = customTitle || file.name.replace(/\.[^/.]+$/, "").replace(/[-_]/g, " ");
     const slug = slugify(finalTitle, { lower: true, strict: true });
 
     // Try to find the first image to use as a thumbnail
-    const firstImageUrlMatch = result.value.match(/<img[^>]+src="([^">]+)"/);
+    const firstImageUrlMatch = html.match(/<img[^>]+src="([^">]+)"/);
     const thumbnailUrl = firstImageUrlMatch ? firstImageUrlMatch[1] : undefined;
 
     return {
         title: finalTitle,
         slug,
         domain,
-        html: result.value,
+        html: processedHtml,
         thumbnailUrl,
     };
 }
@@ -113,10 +140,15 @@ export async function getCaseStudies() {
 }
 
 export async function deleteCaseStudy(id: string) {
-    const { error } = await supabase
+    const { data, error } = await supabase
         .from("case_studies")
         .delete()
-        .eq("id", id);
+        .eq("id", id)
+        .select();
 
     if (error) throw error;
+    if (!data || data.length === 0) {
+        throw new Error("No record found with that ID or deletion not permitted.");
+    }
+    return data;
 }

@@ -13,7 +13,7 @@ const services = [
     color: "from-[#065f46] to-[#022c22]",
     titleColor: "text-emerald-400",
     accentRgb: "52, 211, 153",
-    buttonBg: "bg-emerald-500 text-white hover:bg-emerald-400",
+    buttonBg: "bg-emerald-500 text-text-primary hover:bg-emerald-400",
     tags: ["EU AI Act", "Colorado AI Act", "California AI Act", "Risk Assessment", "Audit"],
     description:
       "Navigate the complex landscape of AI regulations with confidence. We provide comprehensive compliance solutions for EU AI Act, Colorado AI Act, and California AI Act, ensuring your AI systems meet all regulatory requirements.",
@@ -26,7 +26,7 @@ const services = [
     color: "from-[#4c1d95] to-[#1e1b4b]",
     titleColor: "text-violet-300",
     accentRgb: "167, 139, 250",
-    buttonBg: "bg-violet-500 text-white hover:bg-violet-400",
+    buttonBg: "bg-violet-500 text-text-primary hover:bg-violet-400",
     tags: ["Contract Analysis", "Legal AI Tools", "Compliance Audit", "Documentation", "Advisory"],
     description:
       "Empower your legal operations with AI-driven solutions. From contract analysis to compliance documentation, we help law firms and legal departments leverage AI while maintaining ethical standards.",
@@ -39,7 +39,7 @@ const services = [
     color: "from-[#9b111e] to-[#450a0a]",
     titleColor: "text-rose-300",
     accentRgb: "251, 113, 133",
-    buttonBg: "bg-rose-500 text-white hover:bg-rose-400",
+    buttonBg: "bg-rose-500 text-text-primary hover:bg-rose-400",
     tags: ["Customer AI", "Inventory", "Personalization", "Analytics", "E-commerce"],
     description:
       "Revolutionize retail experiences with intelligent AI systems. From personalized recommendations to inventory optimization, we help retailers implement AI solutions that comply with consumer protection regulations.",
@@ -52,7 +52,7 @@ const services = [
     color: "from-[#fafafa] to-[#e5e7eb]",
     titleColor: "text-slate-900",
     accentRgb: "15, 23, 42",
-    buttonBg: "bg-slate-900 text-white hover:bg-slate-800",
+    buttonBg: "bg-slate-900 text-text-primary hover:bg-slate-800",
     textColor: "text-slate-600",
     tagBorder: "border-slate-300 text-slate-700",
     tags: ["Medical AI", "Patient Data", "HIPAA Compliance", "Clinical Tools", "Diagnostics"],
@@ -135,7 +135,7 @@ function ServiceCard({ service, index }: { service: (typeof services)[0]; index:
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.4, delay: index * 0.1 + i * 0.05 + 0.2 }}
-                className={`px-3 py-1 rounded-full text-xs border ${service.tagBorder || "border-white/30 text-white/80"
+                className={`px-3 py-1 rounded-full text-xs border ${service.tagBorder || "border-white/30 text-text-primary/80"
                   }`}
               >
                 {tag}
@@ -147,7 +147,7 @@ function ServiceCard({ service, index }: { service: (typeof services)[0]; index:
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: index * 0.1 + 0.4 }}
-            className={`text-sm md:text-base leading-relaxed mb-8 ${service.textColor || "text-white/90"}`}
+            className={`text-sm md:text-base leading-relaxed mb-8 ${service.textColor || "text-text-primary/90"}`}
           >
             {service.description}
           </motion.p>
@@ -179,23 +179,23 @@ function ServiceCard({ service, index }: { service: (typeof services)[0]; index:
 
 export default function Services() {
   return (
-    <section className="py-24 bg-[#0a0f1a]">
+    <section className="py-24 bg-bg-primary">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
           <div>
-            <span className="inline-block px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-[11px] uppercase tracking-[0.15em] text-white/50 mb-6">
+            <span className="inline-block px-4 py-1.5 bg-bg-secondary border border-border rounded-full text-[11px] uppercase tracking-[0.15em] text-text-muted mb-6">
               Our Solutions
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-              <span className="text-white/30">Transforming</span>
+              <span className="text-text-muted/30">Transforming</span>
               <br />
-              <span className="text-white">ideas into reality</span>
+              <span className="text-text-primary">ideas into reality</span>
             </h2>
           </div>
           <Link
             href="/services"
-            className="px-6 py-3 bg-white text-black text-sm font-medium rounded-full hover:bg-white/90 transition-colors self-start lg:self-auto"
+            className="px-6 py-3 bg-text-primary text-bg-primary text-sm font-medium rounded-full hover:bg-accent hover:text-text-primary transition-colors self-start lg:self-auto"
           >
             Our services
           </Link>

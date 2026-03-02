@@ -25,7 +25,7 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-3xl mx-auto">
             <span className="tag mb-6">Our services</span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
               AI Compliance
               <span className="gradient-text"> solutions</span>
             </h1>
@@ -45,9 +45,9 @@ export default function ServicesPage() {
                 <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "" : ""}`}>
                   <div className={index % 2 === 1 ? "lg:order-2" : ""}>
                     <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#6366f1] to-[#a855f7] flex items-center justify-center mb-6">
-                      <service.icon className="w-8 h-8 text-white" />
+                      <service.icon className="w-8 h-8 text-text-primary" />
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{service.title}</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-4">{service.title}</h2>
                     <p className="text-[#a1a1aa] mb-6">{service.description}</p>
                     <ul className="space-y-3 mb-8">
                       {service.features.map((feature) => (

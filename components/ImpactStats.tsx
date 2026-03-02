@@ -49,7 +49,7 @@ export default function ImpactStats() {
           className="text-center mb-16"
         >
           <span className="tag mb-4">Highlights</span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary">
             Numbers that
             <br />
             <span className="gradient-text">drive success</span>
@@ -68,7 +68,7 @@ export default function ImpactStats() {
             >
               <div className="stats-card text-center h-full">
                 {/* Number */}
-                <div className="text-5xl md:text-6xl font-bold text-white mb-2">
+                <div className="text-5xl md:text-6xl font-bold text-text-primary mb-2">
                   {isInView ? (
                     <CountUp end={stat.value} duration={2} />
                   ) : (
@@ -78,7 +78,7 @@ export default function ImpactStats() {
                 </div>
 
                 {/* Label */}
-                <h3 className="text-lg font-semibold text-white mb-2">
+                <h3 className="text-lg font-semibold text-text-primary mb-2">
                   {stat.label}
                 </h3>
 
@@ -100,7 +100,7 @@ export default function ImpactStats() {
         >
           <p className="text-xl md:text-2xl text-[#a1a1aa] max-w-3xl mx-auto leading-relaxed">
             We blend cutting-edge AI expertise with deep regulatory knowledge to build
-            <span className="text-white"> compliant, scalable solutions</span> that drive growth.
+            <span className="text-text-primary"> compliant, scalable solutions</span> that drive growth.
           </p>
         </motion.div>
       </div>

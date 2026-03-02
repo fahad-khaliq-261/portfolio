@@ -74,45 +74,45 @@ const variantStyles: Record<
   { bg: string; category: string; title: string; decoration: string; decorationOpacity: string }
 > = {
   light: {
-    bg: "bg-[#e8ecf4]",
-    category: "text-blue-900/60",
-    title: "text-[#0a0f1a]",
-    decoration: "from-blue-200/40 to-blue-100/20",
+    bg: "bg-bg-secondary",
+    category: "text-accent/60",
+    title: "text-text-primary",
+    decoration: "from-accent/20 to-accent/5",
     decorationOpacity: "opacity-60",
   },
   purple: {
-    bg: "bg-gradient-to-br from-[#131d3a] to-[#0a0f1a]",
-    category: "text-blue-300/70",
-    title: "text-white",
-    decoration: "from-blue-500/15 to-blue-700/5",
+    bg: "bg-gradient-to-br from-bg-card to-bg-primary",
+    category: "text-accent/70",
+    title: "text-text-primary",
+    decoration: "from-accent/15 to-accent/5",
     decorationOpacity: "opacity-100",
   },
   dark: {
-    bg: "bg-gradient-to-br from-[#0f1729] to-[#0a0f1a]",
-    category: "text-white/40",
-    title: "text-white",
-    decoration: "from-blue-500/10 to-blue-800/5",
+    bg: "bg-bg-card",
+    category: "text-text-muted/60",
+    title: "text-text-primary",
+    decoration: "from-accent/10 to-accent/5",
     decorationOpacity: "opacity-100",
   },
   teal: {
-    bg: "bg-gradient-to-br from-[#0d1f35] to-[#0a0f1a]",
-    category: "text-blue-200/60",
-    title: "text-white",
-    decoration: "from-blue-400/12 to-blue-700/5",
+    bg: "bg-gradient-to-br from-bg-secondary to-bg-card",
+    category: "text-accent/60",
+    title: "text-text-primary",
+    decoration: "from-accent/12 to-accent/5",
     decorationOpacity: "opacity-100",
   },
   violet: {
-    bg: "bg-gradient-to-br from-[#1a2545] to-[#0f1729]",
-    category: "text-blue-200/70",
-    title: "text-white",
-    decoration: "from-blue-400/20 to-blue-800/10",
+    bg: "bg-gradient-to-br from-bg-card to-bg-secondary",
+    category: "text-accent/70",
+    title: "text-text-primary",
+    decoration: "from-accent/20 to-accent/10",
     decorationOpacity: "opacity-100",
   },
   emerald: {
-    bg: "bg-gradient-to-br from-[#0f1f2e] to-[#0a0f1a]",
-    category: "text-blue-300/60",
-    title: "text-white",
-    decoration: "from-blue-500/10 to-blue-900/5",
+    bg: "bg-gradient-to-br from-bg-secondary to-bg-primary",
+    category: "text-accent/60",
+    title: "text-text-primary",
+    decoration: "from-accent/10 to-accent/5",
     decorationOpacity: "opacity-100",
   },
 };
@@ -136,21 +136,18 @@ function DecoPattern({ variant }: { variant: CardVariant }) {
         suppressHydrationWarning
       />
       <div
-        className={`absolute top-[60%] right-[10%] w-32 h-32 rounded-full border ${
-          isLight ? "border-black/[0.06]" : "border-white/[0.04]"
-        }`}
+        className={`absolute top-[60%] right-[10%] w-32 h-32 rounded-full border ${isLight ? "border-black/[0.06]" : "border-white/[0.04]"
+          }`}
         suppressHydrationWarning
       />
       <div
-        className={`absolute top-[45%] right-[20%] w-20 h-20 rounded-full border ${
-          isLight ? "border-black/[0.04]" : "border-white/[0.03]"
-        }`}
+        className={`absolute top-[45%] right-[20%] w-20 h-20 rounded-full border ${isLight ? "border-black/[0.04]" : "border-white/[0.03]"
+          }`}
         suppressHydrationWarning
       />
       <div
-        className={`absolute bottom-0 left-0 w-full h-px ${
-          isLight ? "bg-black/[0.06]" : "bg-white/[0.04]"
-        }`}
+        className={`absolute bottom-0 left-0 w-full h-px ${isLight ? "bg-bg-primary/[0.06]" : "bg-bg-primary/[0.04]"
+          }`}
         suppressHydrationWarning
       />
     </div>
@@ -203,16 +200,14 @@ function InsightCardComponent({
           {/* Arrow indicator */}
           <div className="relative z-10 mt-6 self-end">
             <div
-              className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
-                card.variant === "light"
-                  ? "bg-black/[0.06] group-hover:bg-black/[0.12]"
-                  : "bg-white/[0.06] group-hover:bg-white/[0.12]"
-              }`}
+              className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${card.variant === "light"
+                  ? "bg-bg-primary/[0.06] group-hover:bg-bg-primary/[0.12]"
+                  : "bg-bg-primary/[0.06] group-hover:bg-bg-primary/[0.12]"
+                }`}
             >
               <ArrowUpRight
-                className={`w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${
-                  card.variant === "light" ? "text-black/50" : "text-white/50"
-                }`}
+                className={`w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${card.variant === "light" ? "text-text-primary/50" : "text-text-primary/50"
+                  }`}
               />
             </div>
           </div>
@@ -227,7 +222,7 @@ export default function Insights() {
   const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
 
   return (
-    <section ref={sectionRef} className="py-20 sm:py-28 bg-[#0a0f1a]">
+    <section ref={sectionRef} className="py-20 sm:py-28 bg-bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12 sm:mb-16">
@@ -236,13 +231,13 @@ export default function Insights() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
           >
-            <span className="inline-block px-4 py-1.5 bg-white/[0.04] border border-white/[0.08] rounded-full text-[11px] uppercase tracking-[0.2em] text-white/40 mb-5">
+            <span className="inline-block px-4 py-1.5 bg-bg-secondary border border-border rounded-full text-[11px] uppercase tracking-[0.2em] text-text-muted mb-5">
               Latest Insights
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1]">
-              <span className="text-white/25">Thinking</span>
+              <span className="text-text-muted/25">Thinking</span>
               <br />
-              <span className="text-white">that leads</span>
+              <span className="text-text-primary">that leads</span>
             </h2>
           </motion.div>
 
@@ -253,7 +248,7 @@ export default function Insights() {
           >
             <Link
               href="/insights"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black text-sm font-medium rounded-full hover:bg-white/90 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-text-primary text-bg-primary text-sm font-medium rounded-full hover:bg-accent hover:text-text-primary transition-colors"
             >
               View all
               <ArrowUpRight className="w-4 h-4" />
