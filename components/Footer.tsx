@@ -1,8 +1,8 @@
 "use client";
-import { motion, useInView } from "framer-motion";
+
+import { motion, useInView, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -20,13 +20,6 @@ const servicesLinks = [
   { name: "Colorado AI Act", href: "/services/colorado-ai-act" },
   { name: "California AI Act", href: "/services/california-ai-act" },
   { name: "Consulting", href: "/services/consulting" },
-];
-
-const followLinks = [
-  { name: "LinkedIn", abbr: "Li", href: "https://linkedin.com" },
-  { name: "Instagram", abbr: "Ig", href: "https://instagram.com" },
-  { name: "X", abbr: "X", href: "https://x.com" },
-  { name: "Behance", abbr: "Be", href: "https://behance.net" },
 ];
 
 const legalLinks = [
@@ -55,13 +48,63 @@ function FooterColumn({
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay, ease }}
     >
-      <h3 className="text-[11px] uppercase tracking-[0.2em] text-text-primary/25 font-medium mb-6">
+      <h3 className="text-[11px] uppercase tracking-[0.2em] text-text-muted font-semibold mb-6">
         {title}
       </h3>
       {children}
     </motion.div>
   );
 }
+
+// Simple 3D cursor effect component
+const BigBranding = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springConfig = { damping: 30, stiffness: 100 };
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [8, -8]), springConfig);
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-8, 8]), springConfig);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    mouseX.set(x);
+    mouseY.set(y);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
+
+  return (
+    <div
+      ref={containerRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="relative py-12 cursor-default"
+      style={{ perspective: "1000px" }}
+    >
+      <motion.div
+        style={{ rotateX, rotateY }}
+        transition={{ duration: 0.1 }}
+      >
+        <motion.h1
+          initial={{ opacity: 0, y: 50, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          className="text-[18vw] md:text-[16vw] font-black leading-none tracking-[-0.07em] text-text-primary/5 text-center select-none pointer-events-none"
+        >
+          DataMills
+        </motion.h1>
+      </motion.div>
+    </div>
+  );
+};
 
 export default function Footer() {
   return (
@@ -104,20 +147,10 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Center Section: BIG BRANDING - High Impact & Visible */}
-        <div className="relative select-none pointer-events-none py-12">
-          <motion.h1
-            initial={{ opacity: 0, y: 50, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[16vw] font-black leading-none tracking-[-0.07em] text-text-primary/5 text-center"
-          >
-            DataMills
-          </motion.h1>
-        </div>
+        {/* Center Section: BIG BRANDING - With simple cursor effect */}
+        <BigBranding />
 
-        {/* Bottom Section: Branding & Copyright - Enhanced Visibility */}
+        {/* Bottom Section: Branding & Copyright */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-12 border-t border-border">
           <div className="flex items-center gap-6">
             <span className="text-xl font-black text-text-primary tracking-tighter hover:text-accent transition-colors cursor-default">

@@ -1,80 +1,267 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Shield, FileCheck, Scale, Cpu, Users, TrendingUp, ArrowUpRight, CheckCircle } from "lucide-react";
+import React from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import ContactSection from "@/components/ContactSection";
 
 const services = [
-  { icon: Shield, title: "EU AI Act Compliance", description: "Comprehensive compliance solutions for the European Union's landmark AI regulation. From risk classification to technical documentation.", features: ["Risk Classification & Assessment", "Technical Documentation", "Conformity Assessment Support", "Ongoing Monitoring & Updates"] },
-  { icon: FileCheck, title: "Colorado AI Act Compliance", description: "Navigate Colorado's consumer protection AI requirements with confidence. Impact assessments, disclosures, and governance.", features: ["Algorithmic Impact Assessments", "Consumer Disclosure Requirements", "Risk Management Frameworks", "Developer & Deployer Obligations"] },
-  { icon: Scale, title: "California AI Act Compliance", description: "Meet California's AI transparency and accountability standards. Regulatory guidance and audit support.", features: ["Transparency Report Generation", "Accountability Measures", "Compliance Audit Support", "Regulatory Change Monitoring"] },
-  { icon: Cpu, title: "AI Strategy & Implementation", description: "Develop and implement AI strategies that are compliant by design. From readiness to deployment.", features: ["AI Readiness Assessment", "Compliance-First Architecture", "Implementation Roadmap", "Team Training & Enablement"] },
-  { icon: Users, title: "Consulting & Advisory", description: "Expert guidance on AI governance, policy development, and regulatory compliance tailored to your industry.", features: ["Governance Framework Design", "Policy Development", "Regulatory Advisory", "Board & Executive Briefings"] },
-  { icon: TrendingUp, title: "Managed Compliance", description: "Ongoing compliance monitoring and management. Stay ahead of regulatory changes with continuous support.", features: ["Continuous Monitoring", "Regulatory Update Alerts", "Quarterly Compliance Reviews", "Dedicated Account Manager"] },
+  {
+    id: "ai-compliance",
+    image: "/img/Ai-services.jpg",
+    title: "AI Compliance",
+    description: "Enterprise-grade compliance frameworks for the world's most regulated AI systems. We ensure your innovation meets global legal standards like the EU AI Act.",
+    features: ["Risk Classification & Assessment", "Algorithmic Impact Audits", "Conformity Assessment Support", "Ongoing Governance"],
+    link: "/services/ai-compliance",
+    light: {
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-200",
+      accentColor: "bg-blue-600"
+    },
+    dark: {
+      bgColor: "bg-blue-950/30",
+      borderColor: "border-blue-800",
+      accentColor: "bg-blue-500"
+    }
+  },
+  {
+    id: "legal",
+    image: "/img/legal.jpg",
+    title: "Legal AI",
+    description: "Augmenting legal intelligence with secure, compliant AI systems. Built for the modern law firm and enterprise legal department.",
+    features: ["Contract Analysis", "Compliance Audit", "Document Review", "Ethics Verification"],
+    link: "/services/legal",
+    light: {
+      bgColor: "bg-slate-100",
+      borderColor: "border-slate-300",
+      accentColor: "bg-slate-600"
+    },
+    dark: {
+      bgColor: "bg-slate-800/50",
+      borderColor: "border-slate-700",
+      accentColor: "bg-slate-500"
+    }
+  },
+  {
+    id: "retail",
+    image: "/img/reatail-services.jpg",
+    title: "Retail AI",
+    description: "Redefining the consumer experience through intelligent AI while maintaining strict data privacy and fair-trade standards.",
+    features: ["Inventory Optimization", "Personalization", "Supply Chain", "Customer AI"],
+    link: "/services/retail",
+    light: {
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-200",
+      accentColor: "bg-blue-500"
+    },
+    dark: {
+      bgColor: "bg-indigo-950/30",
+      borderColor: "border-indigo-800",
+      accentColor: "bg-indigo-500"
+    }
+  },
+  {
+    id: "healthcare",
+    image: "/img/health-care-services.jpg",
+    title: "Healthcare",
+    description: "Safe, compliant AI implementation for the care providers of tomorrow. Protecting patients while empowering medical professionals.",
+    features: ["HIPAA Compliance", "Clinical AI", "Diagnostics", "Patient Privacy"],
+    link: "/services/healthcare",
+    light: {
+      bgColor: "bg-gray-100",
+      borderColor: "border-gray-300",
+      accentColor: "bg-gray-600"
+    },
+    dark: {
+      bgColor: "bg-zinc-800/50",
+      borderColor: "border-zinc-700",
+      accentColor: "bg-zinc-500"
+    }
+  },
 ];
+
+// Simple 3D tilt card component
+const TiltCard = ({ children, className }: { children: React.ReactNode; className?: string }) => {
+  const ref = React.useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7.5deg", "-7.5deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7.5deg", "7.5deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        rotateX,
+        rotateY,
+        transformStyle: "preserve-3d",
+      }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 export default function ServicesPage() {
   return (
-    <>
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-[#6366f1]/10 rounded-full blur-[100px]" />
-        </div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center max-w-3xl mx-auto">
-            <span className="tag mb-6">Our services</span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-primary mb-6">
-              AI Compliance
-              <span className="gradient-text"> solutions</span>
-            </h1>
-            <p className="text-lg text-[#a1a1aa]">
-              Comprehensive compliance services for EU AI Act, Colorado AI Act, and California AI Act. Tailored for Healthcare, Legal, and Retail industries.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+    <div className="min-h-screen bg-bg-primary text-text-primary selection:bg-accent/30 overflow-hidden">
+      {/* Subtle Background - Adapts to theme */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-accent/5 rounded-full blur-[120px] -translate-y-1/2" />
+      </div>
 
-      {/* Services Grid */}
-      <section className="py-24 bg-[#111113]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="space-y-12">
-            {services.map((service, index) => (
-              <motion.div key={service.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }}>
-                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "" : ""}`}>
-                  <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#6366f1] to-[#a855f7] flex items-center justify-center mb-6">
-                      <service.icon className="w-8 h-8 text-text-primary" />
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 py-32 relative z-10">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-2xl mb-24"
+        >
+          <span className="inline-block px-4 py-1.5 bg-accent/10 border border-accent/20 rounded-full text-[11px] uppercase tracking-[0.2em] text-accent font-semibold mb-8">
+            Our Services
+          </span>
+          <h1 className="text-5xl md:text-7xl font-black leading-[0.95] tracking-tight mb-8">
+            Enterprise AI
+            <span className="block text-accent">Compliance</span>
+          </h1>
+          <p className="text-lg md:text-xl text-text-muted leading-relaxed max-w-xl">
+            Bridging the gap between AI innovation and global regulatory frameworks. Secure, scalable, and compliant by design.
+          </p>
+        </motion.div>
+
+        {/* Services Grid */}
+        <div className="space-y-24">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+
+                {/* Content Side */}
+                <div className={index % 2 === 1 ? "lg:order-2" : "lg:order-1"}>
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className={`w-12 h-12 rounded-xl border flex items-center justify-center overflow-hidden ${service.light.bgColor} ${service.light.borderColor} dark:${service.dark.bgColor} dark:${service.dark.borderColor}`}>
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        width={48}
+                        height={48}
+                        className="w-8 h-8 object-contain"
+                      />
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-4">{service.title}</h2>
-                    <p className="text-[#a1a1aa] mb-6">{service.description}</p>
-                    <ul className="space-y-3 mb-8">
-                      {service.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-3 text-[#a1a1aa]">
-                          <CheckCircle className="w-5 h-5 text-[#6366f1]" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                    <Link href="/contact" className="inline-flex items-center gap-2 text-[#6366f1] font-medium hover:gap-3 transition-all">
-                      Learn more
-                      <ArrowUpRight className="w-4 h-4" />
-                    </Link>
+                    <div className={`w-12 h-px ${service.light.accentColor} dark:${service.dark.accentColor}`} />
                   </div>
-                  <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                    <div className="aspect-video bg-gradient-to-br from-[#18181b] to-[#111113] rounded-2xl border border-[#27272a] flex items-center justify-center">
-                      <service.icon className="w-24 h-24 text-[#27272a]" />
-                    </div>
-                  </div>
+
+                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                    {service.title}
+                  </h2>
+
+                  <p className="text-lg text-text-muted leading-relaxed mb-8">
+                    {service.description}
+                  </p>
+
+                  <ul className="space-y-3 mb-10">
+                    {service.features.map((feature, i) => (
+                      <motion.li
+                        key={feature}
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.1 }}
+                        className="flex items-center gap-3 text-text-secondary"
+                      >
+                        <div className={`w-1.5 h-1.5 rounded-full ${service.light.accentColor} dark:${service.dark.accentColor}`} />
+                        <span className="font-medium">{feature}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+
+                  <Link
+                    href={service.link}
+                    className={`group inline-flex items-center gap-2 px-6 py-3 font-semibold rounded-lg hover:opacity-90 transition-all text-sm text-white ${service.light.accentColor} dark:${service.dark.accentColor}`}
+                  >
+                    Explore Service
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      <ContactSection />
-    </>
+                {/* Visual Side - Large Image */}
+                <div className={index % 2 === 1 ? "lg:order-1" : "lg:order-2"}>
+                  <TiltCard className="relative">
+                    <div className={`aspect-[4/3] rounded-2xl border flex items-center justify-center relative overflow-hidden ${service.light.bgColor} ${service.light.borderColor} dark:${service.dark.bgColor} dark:${service.dark.borderColor}`}>
+                      {/* Grid Pattern */}
+                      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]"
+                        style={{
+                          backgroundImage: `linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px)`,
+                          backgroundSize: '40px 40px',
+                          color: 'currentColor'
+                        }}
+                      />
+
+                      {/* Large Image */}
+                      <div className="relative z-10 w-3/4 h-3/4">
+                        <Image
+                          src={service.image}
+                          alt={service.title}
+                          fill
+                          className="object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                      </div>
+
+                      {/* Decorative Elements */}
+                      <div className={`absolute top-8 right-8 w-16 h-16 border rounded-full ${service.light.borderColor} dark:${service.dark.borderColor}`} />
+                      <div className={`absolute bottom-8 left-8 w-8 h-8 opacity-10 rounded-full ${service.light.accentColor} dark:${service.dark.accentColor}`} />
+
+                      {/* Number Badge */}
+                      <div className="absolute top-6 left-6 w-10 h-10 bg-bg-primary border border-border rounded-full flex items-center justify-center font-bold text-text-muted text-sm shadow-sm">
+                        0{index + 1}
+                      </div>
+                    </div>
+                  </TiltCard>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Contact Section */}
+      <div className="border-t border-border bg-bg-secondary/30">
+        <ContactSection />
+      </div>
+    </div>
   );
 }

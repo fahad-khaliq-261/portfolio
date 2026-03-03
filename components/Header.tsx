@@ -67,13 +67,15 @@ export default function Header() {
           >
             {/* Logo */}
             <Link href="/" onClick={close} className="flex-shrink-0">
-              <Image
-                src="/logo.png"
-                alt="DataMills"
-                width={72}
-                height={72}
-                className="w-16 h-16 object-contain dark:invert-0 invert transition-all"
-              />
+              <div className="w-10 h-10 rounded-xl bg-[#0a0a0b] flex items-center justify-center overflow-hidden border border-white/10">
+                <Image
+                  src="/logo.svg"
+                  alt="DataMills"
+                  width={64}
+                  height={64}
+                  className="w-9 h-9 object-contain"
+                />
+              </div>
             </Link>
 
             {/* Desktop Nav Links */}

@@ -34,14 +34,24 @@ interface DomainClientProps {
 export default function DomainClient({ domain, domainMetadata, caseStudies }: DomainClientProps) {
     const whitepapers = [
         {
-            title: `${domainMetadata.title} Governance Framework`,
-            description: `A comprehensive guide to implementing ${domainMetadata.title} AI policies and risk management.`,
-            date: "Q1 2024",
+            title: `Navigating the ${domainMetadata.title} Ecosystem`,
+            description: `A comprehensive guide to understanding and operationalizing ${domainMetadata.title} models legally and ethically.`,
+            date: "Feb 2024",
         },
         {
-            title: "Regulatory Compliance Roadmap",
-            description: "Step-by-step checklist for navigating global AI regulations in your specialized field.",
+            title: "Security Risk & Assessment Matrix",
+            description: "Step-by-step checklist to conduct impact assessments before deploying models in production.",
             date: "Jan 2024",
+        },
+        {
+            title: "Future of Autonomous Agents",
+            description: "How domain-specific large language models will reshape enterprise decision making.",
+            date: "Dec 2023",
+        },
+        {
+            title: "Generative AI Data Lifecycle",
+            description: "Securing the data supply chain from model pre-training to post-deployment.",
+            date: "Oct 2023",
         }
     ];
 

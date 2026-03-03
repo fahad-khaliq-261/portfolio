@@ -158,11 +158,11 @@ export default function ContactSection() {
         {/* Small logo at bottom left */}
         <div className="absolute bottom-8 left-8">
           <Image
-            src="/logo.png"
+            src="/logo.svg"
             alt="DataMills"
             width={32}
             height={32}
-            className="opacity-40 invert dark:invert-0"
+            className="opacity-40"
           />
         </div>
       </div>

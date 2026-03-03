@@ -356,6 +356,7 @@ textarea::placeholder {
   border: 1px solid rgba(96, 165, 250, 0.3);
   box-shadow: 0 0 16px rgba(59, 130, 246, 0.25);
   transition: box-shadow 0.3s ease, transform 0.2s ease;
+  color: #ffffff !important;
 }
 
 .nav-cta-btn:hover {
@@ -379,9 +380,15 @@ textarea::placeholder {
 }
 
 .glass-panel {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--bg-card);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
+}
+
+.dark .glass-panel {
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
